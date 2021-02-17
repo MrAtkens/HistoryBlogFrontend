@@ -19,6 +19,7 @@ interface FeaturedCardProps {
   title: string;
   description?: string;
   url: string;
+  creationDate: string;
   tags?: [];
   className?: string;
   imageType?: 'fixed' | 'fluid';
@@ -29,7 +30,7 @@ const FeaturedCard: React.FunctionComponent<FeaturedCardProps> = ({
   image,
   title,
   description,
-  url,
+  url, creationDate,
   tags,
   className,
   imageType,
@@ -90,6 +91,7 @@ const FeaturedCard: React.FunctionComponent<FeaturedCardProps> = ({
 
         <ReadMore className="read_more">
           <Link to={url}>{overlay == true ? 'Read Story' : 'Read More'}</Link>
+          <a className="date">{creationDate}</a>
         </ReadMore>
       </PostDetails>
     </FeaturedCardWrapper>

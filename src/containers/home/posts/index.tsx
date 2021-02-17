@@ -26,6 +26,7 @@ const Posts: React.FunctionComponent<PostsProps> = observer(() => {
                               title={title}
                               image={blog.image.webImagePath}
                               url={"/blog/"+blog.id}
+                              creationDate={blog.creationDate}
                               tags={tags}
                               description={blog.description}
                           />

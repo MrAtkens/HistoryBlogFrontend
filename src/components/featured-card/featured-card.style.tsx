@@ -122,6 +122,16 @@ export const ReadMore = styled.div`
     color: ${themeGet('colors.textColor', '#292929')};
     text-decoration: underline;
   }
+  .read_more:nth-child(2){
+    text-align: right;
+  }
+  .date{
+    font-size: 13px;
+    font-weight: 700;
+    color: #757575;
+    text-decoration: none;
+  }
+
 `;
 
 export const PostTitle = styled.h2`
@@ -162,8 +172,8 @@ export const PostTags = styled.div`
   a {
     display: block;
     margin-right: 20px;
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 12pt;
+    font-weight: 600;
     color: ${themeGet('primary', '#D10068')};
     @media (max-width: 990px) {
       font-size: 13px;

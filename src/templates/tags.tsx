@@ -32,6 +32,7 @@ const Tags = observer(() => {
                             key={item.id}
                             title={item.title}
                             image={item.image.webImagePath}
+                            creationDate={item.creationDate}
                             url={"/blog/" + item.id}
                             description={item.description}
                             tags={tags}
