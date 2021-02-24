@@ -64,7 +64,7 @@ export const MenuItem = styled.li`
 		white-space: nowrap;
 		font-size: ${themeGet('fontSizes.3', '15')}px;
 		line-height: ${themeGet('lineHeights.normal', '1')};
-		font-weight: ${themeGet('fontWeights.3', '400')};
+		font-weight: ${themeGet('fontWeights.5', '400')};
 		color: ${themeGet('colors.lightTextColor', '#757575')};
 		transition: 0.15s ease-in-out;
 
@@ -73,7 +73,7 @@ export const MenuItem = styled.li`
 		}
 		&.active-link {
 			color: ${themeGet('colors.textColor', '#292929')};
-			font-weight: ${themeGet('fontWeights.4', '500')};
+			font-weight: ${themeGet('fontWeights.6', '500')};
 		}
 	}
 `;

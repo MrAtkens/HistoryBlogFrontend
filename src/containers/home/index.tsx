@@ -15,7 +15,7 @@ const PersonalBlog: React.FunctionComponent<PersonalBlogProps> = (props) => {
 
   return (
     <PersonalBlogWrapper {...props}>
-      <Banner />
+      <Banner/>
       <Posts />
     </PersonalBlogWrapper>
   );

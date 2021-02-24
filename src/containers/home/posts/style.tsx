@@ -45,7 +45,6 @@ export const SecTitle = styled.div`
   font-family: ${themeGet("fontFamily.0", "'Fira Sans',sans-serif")};
   letter-spacing: 0.17em;
   position: relative;
-  margin-bottom: 30px;
 
   &:after {
     content: "";

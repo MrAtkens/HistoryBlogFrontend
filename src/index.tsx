@@ -7,8 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import Routes from './routes';
 import * as serviceWorker from './serviceWorker';
-import './theme/global.css';
-
+import './theme/global.css'
 
 function App() {
   const engine = new Styletron();
@@ -17,7 +16,7 @@ function App() {
       <StyletronProvider value={engine}>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
-            <Routes />
+                <Routes />
           </BrowserRouter>
         </ThemeProvider>
       </StyletronProvider>

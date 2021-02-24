@@ -1,58 +1,63 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { observer } from 'mobx-react-lite';
 import FeaturePost from 'components/feature-post/feature-post';
 import { BannerWrapper, BannerInner, FeaturePosts, Title } from './style';
+import blogs from 'stores/blogsStore'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 type BannerProps = {};
 
-const Banner: React.FunctionComponent<BannerProps> = () => {
+const Banner: React.FunctionComponent<BannerProps> = observer(() => {
 
-
-  const Posts = []
+    useEffect(() => {
+        blogs.getFeaturedBlogs()
+    },[])
 
   return (
-    <BannerWrapper>
-      <BannerInner>
-        <FeaturePosts>
-          <Title>Featured Posts</Title>
-          {Posts.map(({ node }: any) => {
-            const title = node.frontmatter.title || node.fields.slug;
-            // Random Placeholder Color
-            const placeholderColors = [
-              '#55efc4',
-              '#81ecec',
-              '#74b9ff',
-              '#a29bfe',
-              '#ffeaa7',
-              '#fab1a0',
-              '#e17055',
-              '#0984e3',
-              '#badc58',
-              '#c7ecee',
-            ];
-            const setColor =
-              placeholderColors[
-                Math.floor(Math.random() * placeholderColors.length)
+      <Carousel showArrows={true}>
+          {blogs.getFeaturedBlogsTable.map(blog => {
+              const title = blog.title;
+              // Random Placeholder Color
+              const placeholderColors = [
+                  '#55efc4',
+                  '#81ecec',
+                  '#74b9ff',
+                  '#a29bfe',
+                  '#ffeaa7',
+                  '#fab1a0',
+                  '#e17055',
+                  '#0984e3',
+                  '#badc58',
+                  '#c7ecee',
               ];
-
-            return (
-              <FeaturePost
-                key={node.fields.slug}
-                title={title}
-                image={
-                  node.frontmatter.cover == null
-                    ? null
-                    : node.frontmatter.cover.childImageSharp.fluid
-                }
-                url={node.fields.slug}
-                tags={node.frontmatter.tags}
-                placeholderBG={setColor}
-              />
-            );
-          })}
-        </FeaturePosts>
-      </BannerInner>
-    </BannerWrapper>
+              const setColor =
+                  placeholderColors[
+                      Math.floor(Math.random() * placeholderColors.length)
+                      ];
+              const tags = blog.tags.split(' ');
+              tags.pop()
+              return (
+                      <BannerWrapper key={blog.id} style={{backgroundImage: `url(${blog.image.webImagePath})`}}>
+                          <BannerInner>
+                              <FeaturePosts>
+                                  <Title>Featured Post</Title>
+                                  <FeaturePost
+                                      key={blog.id}
+                                      title={title}
+                                      category={blog.category}
+                                      description={blog.description}
+                                      creationDate={blog.creationDate}
+                                      url={"/blog/"+blog.id}
+                                      tags={tags}
+                                      placeholderBG={setColor}
+                                  />
+                              </FeaturePosts>
+                          </BannerInner>
+                      </BannerWrapper>
+              )})}
+      </Carousel>
   );
-};
+})
 
 export default Banner;

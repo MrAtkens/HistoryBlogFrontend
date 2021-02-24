@@ -10,11 +10,11 @@ import {
 import {
   AboutWrapper,
   AboutImage,
-  AboutPageTitle,
   AboutDetails,
   SocialProfiles,
 } from './style';
 import image from 'assets/image/about.jpg'
+import Intro from "./intro";
 
 const SocialLinks = [
   {
@@ -46,15 +46,10 @@ const About: React.FunctionComponent<AboutProps> = () => {
 
   return (
     <AboutWrapper>
-      <AboutPageTitle>
-        <h2>About Geek'n'History</h2>
-        <p>
-          Geek'n'History modern blog about history of Kazakhstan and world
-        </p>
-      </AboutPageTitle>
+      <Intro />
 
       <AboutImage>
-        <Image src={image} alt="author" aspectRatio={16/9} />
+          <Image src={image} alt="author" aspectRatio={16/9} />
       </AboutImage>
 
       <AboutDetails>

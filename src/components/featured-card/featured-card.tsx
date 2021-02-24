@@ -19,6 +19,7 @@ interface FeaturedCardProps {
   title: string;
   description?: string;
   url: string;
+  category: any;
   creationDate: string;
   tags?: [];
   className?: string;
@@ -29,6 +30,7 @@ interface FeaturedCardProps {
 const FeaturedCard: React.FunctionComponent<FeaturedCardProps> = ({
   image,
   title,
+    category,
   description,
   url, creationDate,
   tags,
@@ -52,7 +54,7 @@ const FeaturedCard: React.FunctionComponent<FeaturedCardProps> = ({
       {image == null ? null : (
         <PostPreview className="post_preview">
           <Link to={url}>
-            <Image src={image} alt="post preview" />
+              <Image aspectRatio={4/5} src={image} alt="post preview" />
           </Link>
         </PostPreview>
       )}
@@ -63,7 +65,7 @@ const FeaturedCard: React.FunctionComponent<FeaturedCardProps> = ({
             <PostTags className="post_tags">
               {tags.map((tag: string, index: number) => (
                 <Link key={index} to={`/tags/${_.kebabCase(tag)}`}>
-                  {tag}
+                  #{_.kebabCase(tag)}
                 </Link>
               ))}
             </PostTags>
@@ -90,7 +92,9 @@ const FeaturedCard: React.FunctionComponent<FeaturedCardProps> = ({
         )}
 
         <ReadMore className="read_more">
-          <Link to={url}>{overlay == true ? 'Read Story' : 'Read More'}</Link>
+            <Link className="category" key={category.id} to={`/category/${category.name}`}>
+              {category.name}
+            </Link>
           <a className="date">{creationDate}</a>
         </ReadMore>
       </PostDetails>

@@ -1,12 +1,10 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
-import BannerBG from 'assets/image/banner-bg.jpg';
 
 export const BannerWrapper = styled.div`
   position: relative;
   padding: 90px 0;
   background-color: #d96233;
-  background-image: url(${BannerBG});
   background-size: cover;
   background-position: center;
   min-height: 870px;
@@ -76,11 +74,12 @@ export const FeaturePosts = styled.div`
 export const Title = styled.div`
   color: ${themeGet('colors.textColor', '#292929')};
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
+    text-align: start;
   font-family: ${themeGet('fontFamily.0', "'Fira Sans',sans-serif")};
   letter-spacing: 0.17em;
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 
   &:after {
     content: '';

@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import {observer} from "mobx-react-lite";
 import _ from "lodash";
 import { DiscussionEmbed } from 'disqus-react';
-import Layout from 'components/layout';
 import SEO from 'components/seo';
 import PostCard from 'components/post-card/post-card';
 import PostDetails from 'components/post-details/post-details';
@@ -32,15 +31,19 @@ import {
 } from './templates.style';
 import blogs from 'stores/blogsStore'
 
-const BlogPostTemplate = observer((props: any) => {
+const BlogPostTemplate = observer(() => {
   // @ts-ignore
   let { id } = useParams();
   const location = useLocation();
-  console.log(location)
   useEffect(() => {
     blogs.getBlogById(id)
-  },[])
+  },[id])
   const blog = blogs.getBlog
+
+  useEffect(() => {
+    blogs.getRelatedBlogs(id, blog.category.name)
+  }, [blog])
+  
   return (
     <>
         <SEO
@@ -49,18 +52,18 @@ const BlogPostTemplate = observer((props: any) => {
         />
         <BlogPostDetailsWrapper>
           <PostDetails
+              category={blog.category}
               title={blog.title}
               date={blog.creationDate}
               preview={blog.image.webImagePath}
-              description={blog.description}
+              description={blog.mainBlogText}
           />
-
           <BlogPostFooter>
             {blog.tags == null ? null : (
                 <PostTags className="post_tags">
                   {blog.tags.map(tag => (
                       <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
-                        {`#${tag}`}
+                        #{_.kebabCase(tag)}
                       </Link>
                   ))}
                 </PostTags>
@@ -78,32 +81,37 @@ const BlogPostTemplate = observer((props: any) => {
               </InstapaperShareButton>
             </PostShare>
           </BlogPostFooter>
-          {/*<BlogPostComment>*/}
-          {/*  <DiscussionEmbed {...disqusConfig} />*/}
-          {/*</BlogPostComment>*/}
+          <BlogPostComment>
+            <DiscussionEmbed
+                config={{
+                url: window.location.href,
+                identifier: blog.id,
+                title: blog.title,
+              }}  shortname={"blog.disqus.com/embed.js"}/>
+          </BlogPostComment>
         </BlogPostDetailsWrapper>
 
-        {/*{edges.length !== 0 && (*/}
-        {/*    <RelatedPostWrapper>*/}
-        {/*      <RelatedPostTitle>Related Posts</RelatedPostTitle>*/}
-        {/*      <RelatedPostItems>*/}
-        {/*        {edges.map(({ node }: any) => (*/}
-        {/*            <RelatedPostItem key={node.fields.slug}>*/}
-        {/*              <PostCard*/}
-        {/*                  title={node.frontmatter.title || node.fields.slug}*/}
-        {/*                  url={node.fields.slug}*/}
-        {/*                  image={*/}
-        {/*                    node.frontmatter.cover == null*/}
-        {/*                        ? null*/}
-        {/*                        : node.frontmatter.cover.childImageSharp.fluid*/}
-        {/*                  }*/}
-        {/*                  tags={node.frontmatter.tags}*/}
-        {/*              />*/}
-        {/*            </RelatedPostItem>*/}
-        {/*        ))}*/}
-        {/*      </RelatedPostItems>*/}
-        {/*    </RelatedPostWrapper>*/}
-        {/*)}*/}
+        {blogs.getRelatedBlogsTable.length !== 0 && (
+            <RelatedPostWrapper>
+              <RelatedPostTitle>Related Posts</RelatedPostTitle>
+              <RelatedPostItems>
+                {blogs.getRelatedBlogsTable.map(blog => {
+                  const tags = blog.tags.split(' ');
+                  tags.pop()
+                  return(
+                  <RelatedPostItem key={blog.id}>
+                    <PostCard
+                        title={blog.title}
+                        url={"/blog/" + blog.id}
+                        image={blog.image.webImagePath}
+                        tags={tags}
+                    />
+                  </RelatedPostItem>
+                  )
+                })}
+              </RelatedPostItems>
+            </RelatedPostWrapper>
+        )}
       </>
   );
 });

@@ -5,6 +5,7 @@ export const FeaturedPostWrapper = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  text-align: start;
   &:hover {
     .post_preview {
       > a {
@@ -36,6 +37,7 @@ export const PostDetails = styled.div`
 export const PostTitle = styled.h1`
   font-size: 18px;
   font-weight: 700;
+  overflow-wrap: break-word;
 
   line-height: 1.53;
   margin-bottom: 0;
@@ -85,5 +87,41 @@ export const PostTags = styled.div`
       font-size: 13px;
       margin-right: 25px;
     }
+  }
+`;
+
+
+export const ReadMore = styled.div`
+	.category  {
+		font-size: 12px;
+		background-color: #FF2E55;
+		font-weight: ${themeGet('fontWeights.6', '700')};
+		text-transform: uppercase;
+		color: ${themeGet('white', '#FFFFFF')};
+		padding: 2px 10px;
+		display: inline-block;
+		@media (max-width: 767px) {
+			font-size: ${themeGet('fontSizes.0', '10')}px;
+		}
+	}
+    
+    .date{ font-size: 13px; 
+    font-weight: 700; float: 
+    right; color: #757575; 
+    text-decoration: none; }
+`
+
+export const Excerpt = styled.p`
+  overflow-wrap: anywhere;
+  font-size: ${themeGet('fontSizes.3', '15')}px;
+  color: ${themeGet('textColor', '#292929')};
+  font-weight: 400;
+  line-height: 2;
+  margin-bottom: 30px;
+  @media (max-width: 990px) {
+    font-size: 14px;
+  }
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;

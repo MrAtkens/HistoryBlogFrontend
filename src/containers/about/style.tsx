@@ -12,27 +12,6 @@ export const AboutWrapper = styled.div`
   }
 `;
 
-export const AboutPageTitle = styled.div`
-  margin-bottom: 45px;
-  @media (max-width: 767px) {
-    margin-bottom: 30px;
-  }
-  h2 {
-    font-size: 30px;
-    font-weight: 700;
-    color: ${themeGet('colors.textColor', '#292929')};
-    line-height: 1.53;
-    margin-bottom: 10px;
-    @media (max-width: 990px) {
-      font-size: 26px;
-    }
-    @media (max-width: 767px) {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-  }
-`;
-
 export const AboutImage = styled.div`
   margin-bottom: 90px;
   @media (max-width: 990px) {

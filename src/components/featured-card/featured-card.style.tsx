@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 export const FeaturedCardWrapper = styled.div`
   position: relative;
+  margin-top: 50px;
   &:hover {
     .post_details {
       opacity: 1;
@@ -69,11 +70,16 @@ export const FeaturedCardWrapper = styled.div`
 export const PostPreview = styled.div`
   position: relative;
   overflow: hidden;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   img {
     border-radius: 3px;
+    object-fit: cover !important;
   }
   a {
     display: block;
+  }
+  :hover {
+     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
 `;
 
@@ -116,23 +122,24 @@ export const PostMeta = styled.div`
 `;
 
 export const ReadMore = styled.div`
-  a {
-    font-size: 13px;
-    font-weight: 700;
-    color: ${themeGet('colors.textColor', '#292929')};
-    text-decoration: underline;
-  }
-  .read_more:nth-child(2){
-    text-align: right;
-  }
-  .date{
-    font-size: 13px;
-    font-weight: 700;
-    color: #757575;
-    text-decoration: none;
-  }
-
-`;
+	.category  {
+		font-size: 12px;
+		background-color: #FF2E55;
+		font-weight: ${themeGet('fontWeights.6', '700')};
+		text-transform: uppercase;
+		color: ${themeGet('white', '#FFFFFF')};
+		padding: 2px 10px;
+		display: inline-block;
+		@media (max-width: 767px) {
+			font-size: ${themeGet('fontSizes.0', '10')}px;
+		}
+	}
+    
+    .date{ font-size: 13px; 
+    font-weight: 700; float: 
+    right; color: #757575; 
+    text-decoration: none; }
+`
 
 export const PostTitle = styled.h2`
   font-size: 21px;

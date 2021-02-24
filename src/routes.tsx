@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify'
 import {observer} from "mobx-react-lite";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import {
-    LOGIN, ABOUT, HOME, CONTACT, BLOG, TAG
+    LOGIN, ABOUT, HOME, CONTACT, CATEGORY, BLOG, TAG
 } from 'settings/constants';
 
 import system from 'stores/systemStore';
@@ -14,6 +14,7 @@ const Contact = lazy(() => import('containers/contact'));
 const NotFound = lazy(() => import('containers/not-found'));
 const Home = lazy(() => import('containers/home'));
 const Blog = lazy(() => import('templates/blog-post'))
+const Categories = lazy(() => import('templates/category'))
 const Tags = lazy(() => import('templates/tags'))
 
 
@@ -72,11 +73,17 @@ const Routes = observer(() => {
                     <Blog />
                 </AdminLayout>
             </PrivateRoute>
+            <PrivateRoute system={system} exact={true} path={CATEGORY}>
+                <AdminLayout>
+                    <Categories />
+                </AdminLayout>
+            </PrivateRoute>
             <PrivateRoute system={system} exact={true} path={TAG}>
                 <AdminLayout>
                     <Tags />
                 </AdminLayout>
             </PrivateRoute>
+
           {/*<Route path={LOGIN}>*/}
           {/*  <Login />*/}
           {/*</Route>*/}

@@ -1,6 +1,5 @@
 import React from 'react';
 import _ from 'lodash';
-import FeaturePost from '../../components/feature-post/feature-post';
 import PromotionImage from '../../images/ad.png';
 import {
   SidebarWrapper,
@@ -34,44 +33,6 @@ const Sidebar: React.FunctionComponent<SidebarProps> = () => {
         </a>
       </SidebarWidget>
 
-      <SidebarWidget>
-        <WidgetTitle>Latest Post</WidgetTitle>
-        {Posts.map(({ node }: any) => {
-          const title = node.frontmatter.title || node.fields.slug;
-          // Random Placeholder Color
-          const placeholderColors = [
-            '#55efc4',
-            '#81ecec',
-            '#74b9ff',
-            '#a29bfe',
-            '#ffeaa7',
-            '#fab1a0',
-            '#e17055',
-            '#0984e3',
-            '#badc58',
-            '#c7ecee',
-          ];
-          const setColor =
-            placeholderColors[
-              Math.floor(Math.random() * placeholderColors.length)
-            ];
-
-          return (
-            <FeaturePost
-              key={node.fields.slug}
-              title={title}
-              image={
-                node.frontmatter.cover == null
-                  ? null
-                  : node.frontmatter.cover.childImageSharp.fluid
-              }
-              url={node.fields.slug}
-              tags={node.frontmatter.tags}
-              placeholderBG={setColor}
-            />
-          );
-        })}
-      </SidebarWidget>
 
       <SidebarWidget>
         <WidgetTitle>Tags</WidgetTitle>

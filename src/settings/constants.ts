@@ -7,6 +7,7 @@ export const HOME = '/'
 export const LOGIN = '/login';
 export const LOGOUT = '/logout';
 export const BLOGS = '/blogs'
+export const CATEGORY = '/category/:id'
 export const BLOG = '/blog/:id'
 export const TAG = '/tags/:id'
 

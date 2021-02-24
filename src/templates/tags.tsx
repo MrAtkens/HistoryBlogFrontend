@@ -10,39 +10,40 @@ import {FeaturedPostCol, FeaturedPostRow, FeaturedPostWrapper, SecTitle} from ".
 const Tags = observer(() => {
     // @ts-ignore
     let { id } = useParams();
-  useEffect(() => {
-        blogs.getBlogsByTag(id)
-  })
+      useEffect(() => {
+            blogs.getBlogsByTag(id)
+      },[id])
     const blogsTag = blogs.getBlogsTableByTags
-  return (
-    <>
-      <SEO title={id} description={`A collection of ${blogsTag.length} post`} />
-        <TagPageHeading>
-          <TagName>#{id}</TagName>
-          {`A collection of ${blogsTag.length} post`}
-        </TagPageHeading>
-          <FeaturedPostWrapper>
-              <FeaturedPostRow>
-                {blogsTag.map(item => {
-                    const tags = item.tags.split(' ');
-                    tags.pop()
-                    return(
-                        <FeaturedPostCol key={item.title}>
-                            <FeaturedCard
-                            key={item.id}
-                            title={item.title}
-                            image={item.image.webImagePath}
-                            creationDate={item.creationDate}
-                            url={"/blog/" + item.id}
-                            description={item.description}
-                            tags={tags}
-                            />
-                        </FeaturedPostCol>)
-                })}
-              </FeaturedPostRow>
-          </FeaturedPostWrapper>
-    </>
-  );
+      return (
+        <>
+          <SEO title={id} description={`A collection of ${blogsTag.length} post`} />
+            <TagPageHeading>
+              <TagName>#{id}</TagName>
+              {`A collection of ${blogsTag.length} post`}
+            </TagPageHeading>
+              <FeaturedPostWrapper>
+                  <FeaturedPostRow>
+                    {blogsTag.map(item => {
+                        const tags = item.tags.split(' ');
+                        tags.pop()
+                        return(
+                            <FeaturedPostCol key={item.title}>
+                                <FeaturedCard
+                                key={item.id}
+                                title={item.title}
+                                category={item.category}
+                                image={item.image.webImagePath}
+                                creationDate={item.creationDate}
+                                url={"/blog/" + item.id}
+                                description={item.description}
+                                tags={tags}
+                                />
+                            </FeaturedPostCol>)
+                    })}
+                  </FeaturedPostRow>
+              </FeaturedPostWrapper>
+        </>
+      );
 })
 
 export default Tags;

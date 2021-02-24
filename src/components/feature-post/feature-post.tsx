@@ -2,32 +2,31 @@ import * as React from 'react';
 import _ from 'lodash';
 import {
   FeaturedPostWrapper,
-  PostPreview,
+  Excerpt,
   PostDetails,
+  ReadMore,
   PostTitle,
   PostMeta,
   PostTags,
 } from './feature-post.style';
 import { Link } from "react-router-dom";
-import Image from "material-ui-image";
 
 interface FeaturedPostProps {
-  image?: any;
   title: string;
   url: string;
+  description: string,
+  creationDate: string,
   tags?: [];
+  category: any;
   className?: string;
-  imageType?: 'fixed' | 'fluid';
   placeholderBG?: string;
 }
 
 const FeaturedPost: React.FunctionComponent<FeaturedPostProps> = ({
-  image,
   title,
-  url,
-  tags,
+  url, description, creationDate,
+  tags, category,
   className,
-  imageType,
   placeholderBG,
   ...props
 }) => {
@@ -41,47 +40,43 @@ const FeaturedPost: React.FunctionComponent<FeaturedPostProps> = ({
 
   return (
     <FeaturedPostWrapper className={addAllClasses.join(' ')} {...props}>
-      {image == null ? null : (
-        <PostPreview className="post_preview">
-          <Link to={url}>
-            {imageType === 'fluid' ? (
-              <Image
-                src={image}
-                alt="post preview"
-              />
-            ) : (
-              <Image
-                src={image}
-                alt="post preview"
-              />
-            )}
-          </Link>
-        </PostPreview>
-      )}
-
       <PostDetails>
+        <PostMeta>
+          {tags == null ? null : (
+              <PostTags className="post_tags">
+                {tags.slice(0, 2).map((tag: string, index: number) => (
+                    <Link
+                        key={index}
+                        to={`/tags/${_.kebabCase(tag)}/`}
+                    >#{_.kebabCase(tag)}</Link>
+                ))}
+              </PostTags>
+          )}
+        </PostMeta>
         <PostTitle className="post_title">
           <Link to={url}>{title}</Link>
         </PostTitle>
-        <PostMeta>
-          {tags == null ? null : (
-            <PostTags className="post_tags">
-              {tags.slice(0, 2).map((tag: string, index: number) => (
-                <Link
-                  key={index}
-                  to={`/tags/${_.kebabCase(tag)}/`}
-                >{`#${tag}`}</Link>
-              ))}
-            </PostTags>
+        <>
+          {' '}
+          {description && (
+              <Excerpt
+                  dangerouslySetInnerHTML={{
+                    __html: description,
+                  }}
+                  className="excerpt"
+              />
           )}
-        </PostMeta>
+        </>
+        <ReadMore className="read_more">
+          <Link className="category" key={category.id} to={`/category/${category.name}`}>
+            {category.name}
+          </Link>
+          <a className="date">{creationDate}</a>
+        </ReadMore>
       </PostDetails>
     </FeaturedPostWrapper>
   );
 };
 
-FeaturedPost.defaultProps = {
-  imageType: 'fluid',
-};
 
 export default FeaturedPost;

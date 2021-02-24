@@ -11,7 +11,12 @@ export interface ISystem {
 class Blogs implements ISystem{
     blogs = [];
     blogsByTags = [];
-    blog = {  title: "",
+    blogsByCategory = [];
+    relatedBlogs = [];
+    featuredBlogs = [];
+    blog = {
+        id: "",
+        title: "",
         description: "",
         mainBlogText: "",
         category: {id: "", name: "", description: "", sortIndex: "", image: { imageName: "", webImagePath: "" }, alt: ""},
@@ -39,6 +44,25 @@ class Blogs implements ISystem{
         this.setBlogsByTags(response.data)
     }
 
+    async getBlogsByCategory(category){
+        const response = await blogsService.getBlogsByCategory(category)
+        console.log(response)
+        this.setBlogsByCategory(response.data)
+    }
+
+    async getRelatedBlogs(id, category){
+        console.log(category)
+        const response = await blogsService.getRelatedBlogs(id, category)
+        console.log(response)
+        this.setRelatedBlogs(response.data)
+    }
+
+    async getFeaturedBlogs(){
+        const response = await blogsService.getFeaturedBlogs();
+        console.log(response)
+        this.setFeaturedBlogs(response.data)
+    }
+
     async getBlogById(id) {
         const response = await blogsService.getBlogByIdAPI(id);
         const blog = response.data;
@@ -60,6 +84,18 @@ class Blogs implements ISystem{
         return this.blogsByTags
     }
 
+    get getBlogsTableByCategory(){
+        return this.blogsByCategory
+    }
+
+    get getRelatedBlogsTable(){
+        return this.relatedBlogs
+    }
+
+    get getFeaturedBlogsTable(){
+        return this.featuredBlogs
+    }
+
 
     setBlogs(blogs){
         this.blogs = blogs
@@ -67,6 +103,18 @@ class Blogs implements ISystem{
 
     setBlogsByTags(blogs){
         this.blogsByTags = blogs
+    }
+
+    setBlogsByCategory(blogs){
+        this.blogsByCategory = blogs
+    }
+
+    setRelatedBlogs(blogs){
+        this.relatedBlogs = blogs
+    }
+
+    setFeaturedBlogs(blogs){
+        this.featuredBlogs = blogs
     }
 
     setBlog(blog) {

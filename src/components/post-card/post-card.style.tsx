@@ -11,17 +11,7 @@ export const PostPreview = styled.div`
   img {
     border-radius: 3px;
   }
-
-  &:before {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    background-color: #757575;
-    bottom: 0;
-    left: 10%;
-    filter: blur(15px);
-  }
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 `;
 
 export const PostDetails = styled.div`

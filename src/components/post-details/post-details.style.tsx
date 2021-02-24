@@ -56,6 +56,34 @@ export const PostTitle = styled.h1`
   }
 `;
 
+export const PostCategory = styled.span`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 25px;
+	margin-left: -5px;
+	margin-right: -5px;
+	@media (max-width: 1024px) {
+		margin-bottom: 20px;
+	}
+	@media (max-width: 767px) {
+		margin-bottom: 15px;
+	}
+	a {
+		font-size: 12px;
+		background-color: ${themeGet('primary', '#FF2E55')};
+		font-weight: ${themeGet('fontWeights.6', '700')};
+		text-transform: uppercase;
+		color: ${themeGet('white', '#FFFFFF')};
+		padding: 2px 10px;
+		display: inline-block;
+		margin: 0 5px 5px;
+		@media (max-width: 575px) {
+			font-size: ${themeGet('fontSizes.0', '10')}px;
+		}
+	}
+`;
+
 export const PostDate = styled.span`
   display: block;
   font-size: ${themeGet('fontSizes.3', '15')}px;
@@ -82,18 +110,9 @@ export const PostPreview = styled.div`
 
   img {
     border-radius: 3px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
 
-  &:before {
-    content: '';
-    position: absolute;
-    width: 80%;
-    height: 80%;
-    background-color: #757575;
-    bottom: 0;
-    left: 10%;
-    filter: blur(15px);
-  }
 `;
 
 export const PostDescriptionWrapper = styled.div`
@@ -111,143 +130,7 @@ export const PostDescriptionWrapper = styled.div`
 `;
 
 export const PostDescription = styled.div`
-  font-size: ${themeGet('fontSizes.4', '16')}px;
-
-  .mermaid {
-    margin-bottom: 60px;
-    @media (max-width: 767px) {
-      margin-bottom: 40px;
-    }
-  }
-
-  p {
-    font-size: ${themeGet('fontSizes.4', '16')}px;
-    margin-bottom: 2em;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: 500;
-    margin-bottom: 0.75em;
-  }
-
-  h1 {
-    font-size: 30px;
-    margin-bottom: 0.75em;
-  }
-
-  h2 {
-    font-size: 25px;
-    margin-bottom: 0.75em;
-  }
-
-  h3 {
-    font-size: 21px;
-  }
-
-  h4 {
-    font-size: 17px;
-  }
-
-  h5 {
-    font-size: 15px;
-  }
-
-  h6 {
-    font-size: 13px;
-  }
-
-  ol,
-  ul {
-    margin-left: 1.5rem;
-    margin-bottom: 2rem;
-    line-height: 2;
-  }
-
-  li {
-    margin-bottom: 0.45rem;
-
-    p {
-      margin-bottom: 1em;
-    }
-  }
-
-  blockquote {
-    font-family: 'Poppins', sans-serif;
-    font-size: 21px;
-    font-weight: 500;
-    line-height: 2;
-    margin: 60px 0;
-    @media (max-width: 1200px) {
-      margin: 50px 0;
-      font-size: 19px;
-    }
-    @media (max-width: 575px) {
-      margin: 40px 0;
-      font-size: 15px;
-    }
-    &:before,
-    &:after {
-      content: '';
-      width: 30px;
-      height: 1px;
-      display: block;
-      background: #292929;
-    }
-    &:before {
-      margin-bottom: 60px;
-      @media (max-width: 1200px) {
-        margin-bottom: 50px;
-      }
-      @media (max-width: 575px) {
-        margin-bottom: 40px;
-      }
-    }
-    &:after {
-      margin-top: 60px;
-      @media (max-width: 1200px) {
-        margin-top: 50px;
-      }
-      @media (max-width: 575px) {
-        margin-top: 40px;
-      }
-    }
-
-    p {
-      font-size: 21px;
-      font-weight: 500;
-      line-height: 2;
-      margin-bottom: 23px;
-      @media (max-width: 1200px) {
-        font-size: 19px;
-      }
-      @media (max-width: 1200px) {
-        font-size: 17px;
-      }
-      @media (max-width: 575px) {
-        font-size: 15px;
-      }
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-    h4 {
-      font-size: 16px;
-      margin: 0;
-      font-family: 'Fira Sans', sans-serif;
-      font-weight: 400;
-    }
-  }
-
-  a {
-    font-weight: 500;
-    transition: 0.15s ease-in-out;
-    color: ${themeGet('primary', '#D10068')};
-  }
+  
 `;
 
 export const PostTags = styled.div`

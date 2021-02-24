@@ -144,6 +144,49 @@ export const RelatedPostItem = styled.div`
   }
 `;
 
+
+export const CategoryPostCol = styled.div`
+	margin-bottom: 50px;
+	width: 50%;
+	float: left;
+	padding: 0 15px;
+	@media (max-width: 1024px) {
+		margin-bottom: 40px;
+		padding: 0 10px;
+	}
+	@media (max-width: 767px) {
+		margin-bottom: 30px;
+	}
+	@media (max-width: 575px) {
+		width: 420px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 25px;
+	}
+	@media (max-width: 460px) {
+		width: 100%;
+	}
+`;
+
+
+export const PostsList = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+`;
+
+export const TagPostsWrapper = styled.div`
+	margin: 0 auto -75px;
+	padding-top: 60px;
+	position: relative;
+	@media (max-width: 1200px) {
+		margin-bottom: -55px;
+	}
+	@media (max-width: 767px) {
+		padding-top: 40px;
+		margin-bottom: -45px;
+	}
+`;
+
 export const TagPageHeading = styled.div`
   padding-left: 210px;
   font-size: 15px;
@@ -155,12 +198,12 @@ export const TagPageHeading = styled.div`
     padding-left: 160px;
   }
   @media (max-width: 990px) {
-    padding-left: 0;
+    padding-left: 40px;
     font-size: 13px;
-    margin-bottom: 80px;
+    margin-bottom: 30px;
   }
   @media (max-width: 575px) {
-    margin-bottom: 60px;
+    padding-left: 40px;
   }
 
   &:after {

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Image from 'material-ui-image'
 import _ from 'lodash';
 import {
   PostDetailsWrapper,
@@ -8,7 +7,7 @@ import {
   PostPreview,
   PostDescriptionWrapper,
   PostDescription,
-  PostTags,
+  PostTags, PostCategory,
 } from './post-details.style';
 import {Link} from "react-router-dom";
 
@@ -17,6 +16,7 @@ type PostDetailsProps = {
   date?: string;
   preview?: any;
   description: any;
+  category: any;
   tags?: [];
   className?: string;
   imagePosition?: 'left' | 'top';
@@ -26,7 +26,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
   title,
   date,
   preview,
-  description,
+  description, category,
   tags,
   className,
   imagePosition,
@@ -48,7 +48,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
         <>
           {preview == null ? null : (
             <PostPreview className="post_preview">
-              <Image src={preview} alt={title} />
+              <img src={preview} alt={title} />
             </PostPreview>
           )}
         </>
@@ -58,6 +58,11 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
 
       {imagePosition == 'top' ? (
         <>
+          <PostCategory>
+            <Link key={category.id} to={`/category/${category.name}`}>
+              {category.name}
+            </Link>
+          </PostCategory>
           <PostTitle>{title}</PostTitle>
           <PostDate>{date}</PostDate>
         </>
@@ -69,7 +74,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
         <>
           {preview == null ? null : (
             <PostPreview className="post_preview">
-              <Image src={preview} alt={title} />
+              <img src={preview} alt={title} />
             </PostPreview>
           )}
         </>
@@ -79,6 +84,7 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       <PostDescriptionWrapper className="post_des_wrapper">
         {imagePosition == 'left' ? (
           <>
+            <PostCategory>{category}</PostCategory>
             <PostTitle>{title}</PostTitle>
             <PostDate>{date}</PostDate>
           </>
