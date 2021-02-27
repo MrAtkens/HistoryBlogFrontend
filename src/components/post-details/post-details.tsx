@@ -10,6 +10,7 @@ import {
   PostTags, PostCategory,
 } from './post-details.style';
 import {Link} from "react-router-dom";
+import Image from 'material-ui-image'
 
 type PostDetailsProps = {
   title: string;
@@ -19,7 +20,6 @@ type PostDetailsProps = {
   category: any;
   tags?: [];
   className?: string;
-  imagePosition?: 'left' | 'top';
 };
 
 const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
@@ -29,14 +29,9 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
   description, category,
   tags,
   className,
-  imagePosition,
   ...props
 }) => {
   const addClass: string[] = ['post_details'];
-
-  if (imagePosition == 'left') {
-    addClass.push('image_left');
-  }
 
   if (className) {
     addClass.push(className);
@@ -44,56 +39,23 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
 
   return (
     <PostDetailsWrapper {...props} className={addClass.join(' ')}>
-      {imagePosition == 'left' ? (
-        <>
-          {preview == null ? null : (
-            <PostPreview className="post_preview">
-              <img src={preview} alt={title} />
-            </PostPreview>
-          )}
-        </>
-      ) : (
-        ''
-      )}
+      <>
+        <PostCategory>
+          <Link key={category.id} to={`/category/${category.name}`}>
+            {category.name}
+          </Link>
+        </PostCategory>
+        <PostTitle>{title}</PostTitle>
+        <PostDate>{date}</PostDate>
+      </>
+      <PostPreview className="post_preview">
+        <Image aspectRatio={16/9} src={preview} alt={title} />
+      </PostPreview>
 
-      {imagePosition == 'top' ? (
-        <>
-          <PostCategory>
-            <Link key={category.id} to={`/category/${category.name}`}>
-              {category.name}
-            </Link>
-          </PostCategory>
-          <PostTitle>{title}</PostTitle>
-          <PostDate>{date}</PostDate>
-        </>
-      ) : (
-        ''
-      )}
-
-      {imagePosition == 'top' ? (
-        <>
-          {preview == null ? null : (
-            <PostPreview className="post_preview">
-              <img src={preview} alt={title} />
-            </PostPreview>
-          )}
-        </>
-      ) : (
-        ''
-      )}
       <PostDescriptionWrapper className="post_des_wrapper">
-        {imagePosition == 'left' ? (
-          <>
-            <PostCategory>{category}</PostCategory>
-            <PostTitle>{title}</PostTitle>
-            <PostDate>{date}</PostDate>
-          </>
-        ) : (
-          ''
-        )}
         <PostDescription
-          dangerouslySetInnerHTML={{ __html: description }}
-          className="post_des"
+            dangerouslySetInnerHTML={{ __html: description }}
+            className="post_des"
         />
         {tags == null ? null : (
           <PostTags>
@@ -107,10 +69,6 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
       </PostDescriptionWrapper>
     </PostDetailsWrapper>
   );
-};
-
-PostDetails.defaultProps = {
-  imagePosition: 'top',
 };
 
 export default PostDetails;

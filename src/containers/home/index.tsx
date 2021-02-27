@@ -10,7 +10,7 @@ type PersonalBlogProps = {};
 
 const PersonalBlog: React.FunctionComponent<PersonalBlogProps> = (props) => {
     useEffect(() => {
-        blogs.getBlogs();
+        blogs.getLatestBlogs();
     },[])
 
   return (

@@ -3,9 +3,12 @@ import { URLBlog } from '../settings'
 
 axios.defaults.withCredentials = true
 
-const getBlogs = async () => {
+const getBlogsApi = async (currentPage, countPerPage) => {
     console.log(localStorage.getItem('token'));
-    return await axios.get(`${URLBlog}/api/blog`).then(response => {
+    return await axios.post(`${URLBlog}/api/blog/page`, {
+        page: currentPage,
+        countPerPage: countPerPage
+    }).then(response => {
         return response
     }).catch(error => {
         return error.response
@@ -55,11 +58,30 @@ const getFeaturedBlogs = async () => {
     })
 }
 
+
+const getLatestBlogs = async () => {
+    return await axios.get(`${URLBlog}/api/blog/latest`).then(response => {
+        return response
+    }).catch(error => {
+        return error.response
+    })
+}
+
+const getPageCount = async () => {
+    return await axios.get(`${URLBlog}/api/blog/count`).then(response => {
+        return response
+    }).catch(error => {
+        return error.response
+    })
+}
+
 export const blogsService = {
-    getBlogs,
+    getBlogsApi,
     getBlogByIdAPI,
     getBlogsByTag,
     getBlogsByCategory,
     getFeaturedBlogs,
-    getRelatedBlogs
+    getLatestBlogs,
+    getRelatedBlogs,
+    getPageCount
 };

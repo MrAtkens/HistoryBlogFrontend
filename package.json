@@ -13,6 +13,7 @@
     "baseui": "^9.106.3",
     "dayjs": "^1.9.7",
     "disqus-react": "^1.0.10",
+    "fast-sort": "^2.2.0",
     "formik": "^2.2.6",
     "js-search": "^2.0.0",
     "katex": "^0.12.0",

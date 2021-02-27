@@ -30,6 +30,7 @@ export const PrevPage = styled.div`
   }
 `;
 
+
 export const NextPage = styled.div`
   min-width: 32px;
   a {

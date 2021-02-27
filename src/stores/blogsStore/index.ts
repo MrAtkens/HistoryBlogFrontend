@@ -1,5 +1,8 @@
 import { makeAutoObservable } from "mobx"
+import sort from 'fast-sort';
+
 import { blogsService } from 'API'
+import {SORT_BY_DATE, SORT_BY_TITLE, SORT_BY_VIEW} from "settings/constants";
 
 
 export interface ISystem {
@@ -14,6 +17,7 @@ class Blogs implements ISystem{
     blogsByCategory = [];
     relatedBlogs = [];
     featuredBlogs = [];
+    latestBlogs = [];
     blog = {
         id: "",
         title: "",
@@ -27,15 +31,39 @@ class Blogs implements ISystem{
     }
     error = "";
     id = "";
+    countOfPages = 0;
+    currentPage = 1;
+    countOfBlogsOnPage = 3;
+    blogsSortByAlpha = true;
+    blogsSortByView = false;
+    blogsSortByDate = false;
+    blogsSortTitle = "Sort by Title ↑";
 
     constructor() {
         makeAutoObservable(this)
     }
 
+    async getPageCount(){
+        const response = await blogsService.getPageCount();
+        console.log(response)
+        this.countOfPages = response.data
+    }
+
     async getBlogs(){
-        const response = await blogsService.getBlogs()
+        const response = await blogsService.getBlogsApi(this.currentPage, this.countOfBlogsOnPage)
         console.log(response)
         this.setBlogs(response.data)
+    }
+
+    async getLatestBlogs(){
+        const response = await blogsService.getLatestBlogs();
+        this.setLatestBlogs(response.data)
+    }
+
+    async getFeaturedBlogs(){
+        const response = await blogsService.getFeaturedBlogs();
+        console.log(response)
+        this.setFeaturedBlogs(response.data)
     }
 
     async getBlogsByTag(tag){
@@ -57,12 +85,6 @@ class Blogs implements ISystem{
         this.setRelatedBlogs(response.data)
     }
 
-    async getFeaturedBlogs(){
-        const response = await blogsService.getFeaturedBlogs();
-        console.log(response)
-        this.setFeaturedBlogs(response.data)
-    }
-
     async getBlogById(id) {
         const response = await blogsService.getBlogByIdAPI(id);
         const blog = response.data;
@@ -70,6 +92,64 @@ class Blogs implements ISystem{
         blog.tags.pop()
         console.log(blog)
         this.setBlog(response.data)
+    }
+
+    sortBy(type){
+        console.log(this.blogs)
+        switch (type)
+        {
+            case SORT_BY_TITLE:
+                if(this.blogsSortByAlpha) {
+                    this.setBlogs(sort(this.blogs).by([{desc: blog => blog.title}]))
+                    this.blogsSortByAlpha = false;
+                    this.blogsSortByDate = false;
+                    this.blogsSortByView = false;
+                    this.blogsSortTitle = "Sort by Title ↓"
+                }
+                else {
+                    this.setBlogs(sort(this.blogs).by([{asc: blog => blog.title}]))
+                    this.blogsSortByAlpha = true;
+                    this.blogsSortByDate = false;
+                    this.blogsSortByView = false;
+                    this.blogsSortTitle = "Sort by Title ↑"
+                }
+                break
+            case SORT_BY_VIEW:
+                if(this.blogsSortByView) {
+                    this.setBlogs(sort(this.blogs).by([{desc: blog => blog.viewCount}]))
+                    this.blogsSortByAlpha = false;
+                    this.blogsSortByDate = false;
+                    this.blogsSortByView = false;
+                    this.blogsSortTitle = "Sort by View count ↓"
+                }
+                else{
+                    this.setBlogs(sort(this.blogs).by([{asc: blog => blog.viewCount}]))
+                    this.blogsSortByAlpha = false;
+                    this.blogsSortByDate = false;
+                    this.blogsSortByView = true;
+                    this.blogsSortTitle = "Sort by View count ↑"
+                }
+                break
+            case SORT_BY_DATE:
+                if(this.blogsSortByDate) {
+                    this.setBlogs(sort(this.blogs).by([{desc: blog => blog.creationDate}]))
+                    this.blogsSortByAlpha = false;
+                    this.blogsSortByDate = false;
+                    this.blogsSortByView = false;
+                    this.blogsSortTitle = "Sort by date ↓"
+                }
+                else{
+                    this.setBlogs(sort(this.blogs).by([{asc: blog => blog.creationDate}]))
+                    this.blogsSortByAlpha = false;
+                    this.blogsSortByDate = true;
+                    this.blogsSortByView = false;
+                    this.blogsSortTitle = "Sort by date ↑"
+                }
+                break;
+
+            default:
+                alert('Default case');
+        }
     }
 
     get getBlog(){
@@ -92,10 +172,25 @@ class Blogs implements ISystem{
         return this.relatedBlogs
     }
 
+    get getLatestBlogsTable(){
+        return this.latestBlogs
+    }
+
     get getFeaturedBlogsTable(){
         return this.featuredBlogs
     }
 
+    get getCountPages(){
+        return this.countOfPages
+    }
+
+    get getCurrentPage(){
+        return this.currentPage
+    }
+
+    get getBlogsSortTitle(){
+        return this.blogsSortTitle
+    }
 
     setBlogs(blogs){
         this.blogs = blogs
@@ -117,9 +212,22 @@ class Blogs implements ISystem{
         this.featuredBlogs = blogs
     }
 
+    setLatestBlogs(blogs){
+        this.latestBlogs = blogs
+    }
+
     setBlog(blog) {
         this.blog = blog
     }
+
+    nextPage(){
+        this.currentPage++;
+    }
+
+    prevPage(){
+        this.currentPage--;
+    }
+
 }
 
 

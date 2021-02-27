@@ -14,9 +14,9 @@ type PostsProps = {};
 const Posts: React.FunctionComponent<PostsProps> = observer(() => {
   return (
       <FeaturedPostWrapper>
-          <SecTitle>Featured Stories</SecTitle>
+          <SecTitle>Latest Stories</SecTitle>
           <FeaturedPostRow>
-              {blogs.getBlogsTable.map(blog => {
+              {blogs.getLatestBlogsTable.map(blog => {
                   const title = blog.title
                   const tags = blog.tags.split(' ');
                   tags.pop()

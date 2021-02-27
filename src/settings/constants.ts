@@ -13,4 +13,8 @@ export const TAG = '/tags/:id'
 
 // **************** ROUTE CONSTANT END **************************
 
-export const CURRENCY = 'тг';
+
+
+export const SORT_BY_TITLE = 'SORT_BY_TITLE'
+export const SORT_BY_VIEW = 'SORT_BY_VIEW'
+export const SORT_BY_DATE = 'SORT_BY_DATE'

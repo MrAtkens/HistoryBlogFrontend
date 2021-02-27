@@ -16,7 +16,7 @@ import HeaderWrapper, {
 import LogoImage from 'assets/image/logo.png';
 import {Link} from "react-router-dom";
 
-import {HOME, CONTACT, ABOUT} from "settings/constants";
+import {HOME, CONTACT, ABOUT, BLOGS} from "settings/constants";
 
 type NavbarProps = {
   className?: string;
@@ -26,6 +26,10 @@ const MenuItems = [
   {
     label: 'Home',
     url: HOME,
+  },
+  {
+    label: 'Blogs',
+    url: BLOGS,
   },
   {
     label: 'About',

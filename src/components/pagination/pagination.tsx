@@ -6,45 +6,45 @@ import {
   NextPage,
   PageNumber,
 } from './pagination.style';
-import {Link} from "react-router-dom";
+import {observer} from "mobx-react-lite";
+import blogs from 'stores/blogsStore'
 
 type PaginationProps = {
-  prevLink?: string | undefined | null | boolean;
-  nextLink?: string | undefined | null | boolean;
+
   currentPage: string;
   totalPage: string;
   className?: string;
 };
 
-const Pagination: React.FunctionComponent<PaginationProps> = ({
-  prevLink,
-  nextLink,
+const Pagination: React.FunctionComponent<PaginationProps> = observer(({
   currentPage,
   totalPage,
   className,
   ...props
 }) => {
+    console.log(blogs.getCountPages)
+    console.log(blogs.getCurrentPage)
   return (
     <PaginationWrapper {...props} className={className}>
       <PrevPage>
-        {prevLink && (
-          <Link to={`${prevLink}`} aria-label="Prev">
+        {blogs.getCurrentPage != 1 && (
+          <a onClick={() => blogs.prevPage()} aria-label="Prev">
             <IoMdArrowRoundBack />
-          </Link>
+          </a>
         )}
       </PrevPage>
 
       <PageNumber>{`Page ${currentPage} Of ${totalPage}`}</PageNumber>
 
       <NextPage>
-        {nextLink && (
-          <Link to={`${nextLink}`} aria-label="Next">
+        {Math.ceil(blogs.getCountPages/blogs.countOfBlogsOnPage) != blogs.getCurrentPage && (
+          <a onClick={() => blogs.nextPage()} aria-label="Next">
             <IoMdArrowRoundForward />
-          </Link>
+          </a>
         )}
       </NextPage>
     </PaginationWrapper>
   );
-};
+})
 
 export default Pagination;

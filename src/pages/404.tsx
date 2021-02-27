@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from 'components/navbar/navbar';
 import ResetCss from 'components/reset-css';
 import SEO from 'components/seo';
 import NotFound from 'containers/not-found';
@@ -9,13 +8,12 @@ const NotFoundPage = () => {
   return (
     <>
       <ResetCss />
-      <Navbar />
       <SEO title="404: Not Found" />
       <NotFound />
-      <Footer>
-        Copyright &copy; {new Date().getFullYear()}
-        <a href="https://redq.io/"> RedQ, Inc.</a>
-      </Footer>
+        <Footer>
+            Hello it's &copy; {new Date().getFullYear()}
+            <a href="">Geek'n'History.</a>
+        </Footer>
     </>
   );
 };

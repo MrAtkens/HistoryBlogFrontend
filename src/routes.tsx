@@ -3,17 +3,18 @@ import { ToastContainer } from 'react-toastify'
 import {observer} from "mobx-react-lite";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import {
-    LOGIN, ABOUT, HOME, CONTACT, CATEGORY, BLOG, TAG
+    LOGIN, ABOUT, HOME, CONTACT, CATEGORY, BLOG, TAG, BLOGS
 } from 'settings/constants';
 
 import system from 'stores/systemStore';
 
 const AdminLayout = lazy(() => import('components/layout'));
-const About = lazy(() => import('containers/about'));
-const Contact = lazy(() => import('containers/contact'));
-const NotFound = lazy(() => import('containers/not-found'));
-const Home = lazy(() => import('containers/home'));
+const About = lazy(() => import('pages/about'));
+const Contact = lazy(() => import('pages/contact'));
+const NotFound = lazy(() => import('pages/404'));
+const Home = lazy(() => import('pages/index'));
 const Blog = lazy(() => import('templates/blog-post'))
+const Blogs = lazy(() => import('templates/blogs'))
 const Categories = lazy(() => import('templates/category'))
 const Tags = lazy(() => import('templates/tags'))
 
@@ -63,14 +64,14 @@ const Routes = observer(() => {
                     <Contact />
                 </AdminLayout>
             </PrivateRoute>
-            <PrivateRoute system={system} exact={true} path={HOME}>
-                <AdminLayout>
-                    <Home />
-                </AdminLayout>
-            </PrivateRoute>
             <PrivateRoute system={system} exact={true} path={BLOG}>
                 <AdminLayout>
                     <Blog />
+                </AdminLayout>
+            </PrivateRoute>
+            <PrivateRoute system={system} exact={true} path={BLOGS}>
+                <AdminLayout>
+                    <Blogs />
                 </AdminLayout>
             </PrivateRoute>
             <PrivateRoute system={system} exact={true} path={CATEGORY}>

@@ -1,19 +1,17 @@
 import React from 'react';
-import Layout from 'components/layout';
 import PersonalBlog from 'containers/home';
 import SEO from 'components/seo';
 
-const HomePage = (props: any) => {
-  const { data } = props;
+const HomePage = () => {
 
   return (
-    <Layout>
+    <>
       <SEO
-        title="Agency Blog Modern"
-        description={data.site.siteMetadata.description}
+        title="Geek'n'History blog"
+        description={"history, blog, kazakhstan"}
       />
       <PersonalBlog />
-    </Layout>
+    </>
   );
 };
 
