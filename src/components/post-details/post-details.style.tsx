@@ -103,6 +103,12 @@ export const PostDescriptionWrapper = styled.div`
 `;
 
 export const PostDescription = styled.div`
+ @media (max-width: 575px) {
+   iframe{
+        width: 90%;    
+    }
+  }
+
 `;
 
 export const PostTags = styled.div`

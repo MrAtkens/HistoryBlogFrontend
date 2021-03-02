@@ -9,6 +9,8 @@ import {
   ContactFromWrapper,
   InputGroup,
 } from './style';
+import {observer} from "mobx-react-lite";
+import systemStore from "stores/systemStore"
 
 interface MyFormValues {
   firstName: string;
@@ -22,16 +24,20 @@ const SignupSchema = Yup.object().shape({
   message: Yup.string().required('Required'),
 });
 
-const Contact: React.SFC<{}> = () => {
+const Contact: React.SFC<{}> = observer(() => {
   return (
     <Formik
       initialValues={{ firstName: '', email: '', message: '' }}
       onSubmit={(values: MyFormValues, actions: any) => {
-        setTimeout(() => {
-          console.log({ values, actions });
-          alert(JSON.stringify(values, null, 2));
+        systemStore.sendMailFromUser(values.firstName, values.email, values.message).then(status => {
+          console.log(status)
           actions.setSubmitting(false);
-        }, 700);
+          if(status === true) {
+            actions.setFieldValue("firstName", "")
+            actions.setFieldValue("email", "")
+            actions.setFieldValue("message", "")
+          }
+        })
       }}
       validationSchema={SignupSchema}
       render={({
@@ -40,7 +46,7 @@ const Contact: React.SFC<{}> = () => {
         errors,
         handleBlur,
         touched,
-        isSubmitting,
+        isSubmitting
       }: FormikProps<MyFormValues>) => (
         <>
           <Form>
@@ -105,6 +111,6 @@ const Contact: React.SFC<{}> = () => {
       )}
     />
   );
-};
+})
 
 export default Contact;

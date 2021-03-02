@@ -37,4 +37,7 @@ export const toastUnauthorizedError = () => {
     toast.error("Ваш токен валидаций истёк, вам надо перезайти", defaultSetings)
 }
 
-
+//Status 204
+export const toastSendMailSuccess = () => {
+    toast.success("Ваше сообщение успешно отправлено, спасибо за то что написали нам", defaultSetings)
+}

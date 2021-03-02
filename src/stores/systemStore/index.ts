@@ -1,13 +1,7 @@
 import { makeAutoObservable } from "mobx";
-import { authenticationService } from "API";
+import { authenticationService, systemService } from "API";
 import { authorizationStatusValidation, userGetDataStatus } from 'settings/responseStatus'
-
-const isValidToken = () => {
-    const token = localStorage.getItem('jwt_token');
-    // JWT decode & check token validity & expiration.
-    return !!token;
-
-};
+import { toastSendMailSuccess, toastServerError } from 'settings/toastifyTools'
 
 export interface ISystem {
     isAuthenticated: boolean;
@@ -57,6 +51,18 @@ class System implements ISystem{
     async singOut(){
         this.setAuth(false)
         localStorage.removeItem('jwt_token');
+    }
+
+    async sendMailFromUser(firstName, email, message){
+        const response = await systemService.sendMail(firstName,email,message)
+        if(response.status === 204){
+            toastSendMailSuccess()
+            return true;
+        }
+        else{
+            toastServerError()
+            return false;
+        }
     }
 
     setId(id){
