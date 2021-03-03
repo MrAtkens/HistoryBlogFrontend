@@ -15,7 +15,7 @@ const Banner: React.FunctionComponent<BannerProps> = observer(() => {
     },[])
 
   return (
-      <Carousel showArrows={true}>
+      <Carousel showArrows={true} showStatus={false} emulateTouch={true}>
           {blogs.getFeaturedBlogsTable.map(blog => {
               const title = blog.title;
               // Random Placeholder Color

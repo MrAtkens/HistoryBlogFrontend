@@ -1,30 +1,42 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
-import NewsletterBG from 'assets/image/newsletter-bg.png';
+import NewsletterBG from 'assets/image/newsletter-bg.webp';
 
 export const NewsletterWrapper = styled.div`
   margin: 0 auto;
   padding: 30px;
-  background-color: #f3f3f3;
   background-image: url(${NewsletterBG});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 3px;
-  margin-top: 120px;
+  margin-top: 60px;
+  margin-bottom: 60px;
 
+  @media (min-width: 990px) {
+    width: 900px;
+  }
+  @media (min-width: 1200px) {
+    width: 1050px;
+  }
+  @media (min-width: 1400px) {
+    width: 1170px;
+  }
   @media (max-width: 990px) {
+    width: calc(100% - 90px);
     margin-top: 90px;
     padding: 25px;
   }
   @media (max-width: 575px) {
+    width: calc(100% - 50px);
     margin-top: 60px;
     padding: 15px;
   }
 `;
 
 export const NewsletterInnerWrapper = styled.div`
-  padding: 115px;
+  background: #fff;
+  padding: 90px;
   height: 100%;
   border-radius: 3px;
   display: flex;
@@ -104,7 +116,6 @@ export const NewsletterInputWrapper = styled.form`
       input {
         border-width: 0 0 1px 0;
         border-color: ${themeGet('colors.textColor', '#292929')};
-        background: transparent;
       }
     }
   }

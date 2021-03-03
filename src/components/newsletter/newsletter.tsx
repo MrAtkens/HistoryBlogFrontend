@@ -23,20 +23,7 @@ const Newsletter: React.FunctionComponent<NewsletterProps> = ({ ...props }) => {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    // addToMailchimp(email) // listFields are optional if you are only capturing the email address.
-    //   .then(({ msg, result }: any) => {
-    //     if (result !== 'success') {
-    //       throw msg;
-    //     }
-    //     setSuccess(msg);
-    //     setError('');
-    //     setEmail('');
-    //   })
-    //   .catch((err: any) => {
-    //     setError(err);
-    //     setSuccess('');
-    //     setEmail('');
-    //   });
+
   };
   return (
     <NewsletterWrapper {...props}>

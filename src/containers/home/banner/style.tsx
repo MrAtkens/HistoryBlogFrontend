@@ -50,7 +50,7 @@ export const BannerInner = styled.div`
 `;
 
 export const FeaturePosts = styled.div`
-  width: 460px;
+  width: 560px;
   max-width: 100%;
   background-color: #fff;
   border-radius: 6px;
