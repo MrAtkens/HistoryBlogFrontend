@@ -24,7 +24,7 @@ const Posts: React.FunctionComponent<PostsProps> = observer(() => {
                       <FeaturedPostCol key={title}>
                           <FeaturedCard
                               title={title}
-                              image={blog.image.webImagePath}
+                              image={blog.image}
                               url={"/blog/"+blog.id}
                               creationDate={blog.creationDate}
                               category={blog.category}

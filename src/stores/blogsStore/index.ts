@@ -116,14 +116,14 @@ class Blogs implements ISystem{
                 break
             case SORT_BY_VIEW:
                 if(this.blogsSortByView) {
-                    this.setBlogs(sort(this.blogs).by([{desc: blog => blog.viewCount}]))
+                    this.setBlogs(sort(this.blogs).by([{asc: blog => blog.viewCount}]))
                     this.blogsSortByAlpha = false;
                     this.blogsSortByDate = false;
                     this.blogsSortByView = false;
                     this.blogsSortTitle = "Sort by View count ↓"
                 }
                 else{
-                    this.setBlogs(sort(this.blogs).by([{asc: blog => blog.viewCount}]))
+                    this.setBlogs(sort(this.blogs).by([{desc: blog => blog.viewCount}]))
                     this.blogsSortByAlpha = false;
                     this.blogsSortByDate = false;
                     this.blogsSortByView = true;

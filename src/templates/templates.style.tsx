@@ -169,30 +169,12 @@ export const CategoryPostCol = styled.div`
 `;
 
 
-export const PostsList = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-`;
-
-export const TagPostsWrapper = styled.div`
-	margin: 0 auto -75px;
-	padding-top: 60px;
-	position: relative;
-	@media (max-width: 1200px) {
-		margin-bottom: -55px;
-	}
-	@media (max-width: 767px) {
-		padding-top: 40px;
-		margin-bottom: -45px;
-	}
-`;
-
 export const TagPageHeading = styled.div`
   padding-left: 210px;
   font-size: 15px;
   font-weight: 400;
   margin-top: 80px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   position: relative;
   @media (max-width: 1200px) {
     padding-left: 160px;
@@ -346,35 +328,5 @@ export const PostTags = styled.div`
       font-size: 13px;
       margin-right: 25px;
     }
-  }
-`;
-
-export const PostRow = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -20px;
-  margin-bottom: 60px;
-  @media (max-width: 990px) {
-    margin-bottom: 40px;
-  }
-  @media (max-width: 575px) {
-    margin-bottom: 30px;
-  }
-`;
-
-export const PostGrid = styled.div`
-  flex: 0 0 50%;
-  max-width: 50%;
-  padding: 0 20px;
-  margin-bottom: 90px;
-  @media (max-width: 990px) {
-    margin-bottom: 70px;
-  }
-  @media (max-width: 767px) {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-  @media (max-width: 575px) {
-    margin-bottom: 50px;
   }
 `;

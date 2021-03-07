@@ -54,7 +54,7 @@ const FeaturedCard: React.FunctionComponent<FeaturedCardProps> = ({
       {image == null ? null : (
         <PostPreview className="post_preview">
           <Link to={url}>
-              <Image aspectRatio={4/5} src={image} alt="post preview" />
+              <Image aspectRatio={4/5} src={image.webImagePath} alt={image.alt} />
           </Link>
         </PostPreview>
       )}

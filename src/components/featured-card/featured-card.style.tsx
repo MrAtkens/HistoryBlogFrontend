@@ -145,6 +145,7 @@ export const PostTitle = styled.h2`
   font-size: 21px;
   font-weight: 700;
   overflow-wrap: break-word;
+  user-select: text;
   color: ${themeGet('colors.textColor', '#292929')};
   margin-bottom: 10px;
   a {
@@ -175,6 +176,7 @@ export const PostTags = styled.div`
   flex-wrap: wrap;
   align-items: center;
   flex-grow: 1;
+  user-select: text;
 
   a {
     display: block;
@@ -196,6 +198,7 @@ export const Excerpt = styled.p`
   font-weight: 400;
   line-height: 2;
   margin-bottom: 30px;
+  user-select: text;
   @media (max-width: 990px) {
     font-size: 14px;
   }

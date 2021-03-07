@@ -8,7 +8,7 @@ const NotFoundPage = () => {
   return (
     <>
       <ResetCss />
-      <SEO title="404: Not Found" />
+      <SEO title="404: Not Found" description="Geek'n'History blog"/>
       <NotFound />
         <Footer>
             Hello it's &copy; {new Date().getFullYear()}

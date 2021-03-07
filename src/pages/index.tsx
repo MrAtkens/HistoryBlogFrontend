@@ -8,7 +8,7 @@ const HomePage = () => {
     <>
       <SEO
         title="Geek'n'History blog"
-        description={"history, blog, kazakhstan"}
+        description={"history, Geek'n'History blog, kazakhstan"}
       />
       <PersonalBlog />
     </>

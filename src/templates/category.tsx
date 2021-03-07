@@ -1,10 +1,8 @@
 import React, {useEffect} from 'react';
 import SEO from 'components/seo';
 import {
-	TagPostsWrapper,
 	TagPageHeading,
 	TagName,
-
 } from './templates.style';
 import {observer} from "mobx-react-lite";
 import {useParams} from "react-router-dom";
@@ -26,7 +24,6 @@ const Category = observer(() => {
 				description={`A collection of ${blogsCategory.length} post`}
 			/>
 
-			<TagPostsWrapper>
 				<TagPageHeading>
 					<TagName>{id.charAt(0).toUpperCase() + id.slice(1)}</TagName>
 					{`A collection of ${blogsCategory.length} post`}
@@ -42,7 +39,7 @@ const Category = observer(() => {
 										key={item.id}
 										title={item.title}
 										category={item.category}
-										image={item.image.webImagePath}
+										image={item.image}
 										creationDate={item.creationDate}
 										url={"/blog/" + item.id}
 										description={item.description}
@@ -52,7 +49,6 @@ const Category = observer(() => {
 						})}
 					</FeaturedPostRow>
 				</FeaturedPostWrapper>
-			</TagPostsWrapper>
 		</>
 	);
 })

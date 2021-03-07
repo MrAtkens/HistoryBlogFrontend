@@ -2,15 +2,15 @@ import styled from "styled-components"
 import { themeGet } from "@styled-system/theme-get"
 
 export const FeaturedPostWrapper = styled.div`
-  margin: 0 auto;
-  padding: 60px 75px 0 75px;
+  margin: 40px auto;
+  padding: 0 75px 0 75px;
   position: relative;
-
+  user-select: none;
   @media (max-width: 1400px) {
-    padding: 60px 35px 0 35px;
+    padding: 0 35px 0 35px;
   }
   @media (max-width: 990px) {
-    padding: 60px 25px 0 25px;
+    padding: 0 25px 0 25px;
   }
 `
 

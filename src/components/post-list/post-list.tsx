@@ -19,7 +19,6 @@ interface PostListProps {
 	date?: string;
 	tags?: [];
 	className?: string;
-	imageType?: 'fixed' | 'fluid';
 	placeholderBG?: string;
 }
 
@@ -30,7 +29,6 @@ const PostList: React.FunctionComponent<PostListProps> = ({
 	date,
 	tags,
 	className,
-	imageType,
 	placeholderBG,
 	...props
 }) => {
@@ -47,17 +45,10 @@ const PostList: React.FunctionComponent<PostListProps> = ({
 			<Link to={url}>
 				{image == null ? null : (
 					<PostPreview className='post_preview'>
-						{imageType === 'fluid' ? (
-							<Image
-								src={image}
-								alt='post preview'
-							/>
-						) : (
-							<Image
-								src={image}
-								alt='post preview'
-							/>
-						)}
+						<Image
+							src={image.webImagePath}
+							alt={image.alt}
+						/>
 					</PostPreview>
 				)}
 
@@ -75,7 +66,7 @@ const PostList: React.FunctionComponent<PostListProps> = ({
 						{tags == null ? null : (
 							<PostTags className='post_tags'>
 								{tags.map((tag: string, index: number) => (
-									<span key={index}>{`#${tag}`}</span>
+									<span key={index}>{`#${_.kebabCase(tag)}`}</span>
 								))}
 							</PostTags>
 						)}
@@ -86,8 +77,5 @@ const PostList: React.FunctionComponent<PostListProps> = ({
 	);
 };
 
-PostList.defaultProps = {
-	imageType: 'fluid',
-};
 
 export default PostList;

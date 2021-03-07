@@ -1,0 +1,48 @@
+import {makeAutoObservable} from "mobx";
+
+import { quotesService } from 'API'
+export interface ISystem {
+    quotes: Array<Object>;
+    error: string;
+    id: string;
+}
+
+
+class Quotes implements ISystem{
+    quotes = [];
+    error = "";
+    id = "";
+
+    constructor() {
+        makeAutoObservable(this)
+    }
+
+    async getQuotes(){
+        const response = await quotesService.getQuotesApi()
+        console.log(response)
+        this.setQuotes(response.data)
+    }
+
+    get getQuoteById(){
+        let findQuote = {fullName: "", description: "", date: "", image: { imageName: "", webImagePath: "" }, alt: ""}
+        this.quotes.map(quote => {
+            if(quote.id === this.id){
+                findQuote = quote
+                findQuote.alt = quote.image.alt
+            }
+        })
+        console.log(findQuote)
+        return findQuote;
+    }
+
+
+    get getQuotesTable(){
+        return this.quotes;
+    }
+
+    setQuotes(quotes){
+        this.quotes = quotes
+    }
+}
+
+export default new Quotes();

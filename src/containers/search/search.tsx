@@ -90,7 +90,7 @@ const Search = observer(() => {
                         key={item.id}
                         title={item.title}
                         url={"/blog/"+item.id}
-                        image={item.image.webImagePath}
+                        image={item.image}
                         date={item.date}
                         tags={tags}
                     />

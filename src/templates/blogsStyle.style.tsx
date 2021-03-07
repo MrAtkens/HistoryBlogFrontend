@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 
 export const BlogPostsWrapper = styled.div`
+  user-select: none;
   margin: 0 auto;
   padding: 60px 75px 0 75px;
   position: relative;

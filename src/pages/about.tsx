@@ -9,7 +9,7 @@ const AboutPage: React.FunctionComponent<AboutPageProps> = () => {
     <>
       <SEO
         title="About Us"
-        description="StoryHub is a beautiful Gatsby Blog theme designed to showcase your work in style. Perfect for designers, artists, photographers and developers to use for their portfolio website."
+        description="history, Geek'n'History blog, kazakhstan"
       />
       <About />
     </>
