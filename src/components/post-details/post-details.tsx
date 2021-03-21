@@ -11,6 +11,7 @@ import {
 } from './post-details.style';
 import {Link} from "react-router-dom";
 import Image from 'material-ui-image'
+import {CategoryItem, Tooltip} from "../../templates/blogsStyle.style";
 
 type PostDetailsProps = {
   title: string;
@@ -41,9 +42,10 @@ const PostDetails: React.FunctionComponent<PostDetailsProps> = ({
     <PostDetailsWrapper {...props} className={addClass.join(' ')}>
       <>
         <PostCategory>
-          <Link key={category.id} to={`/category/${category.name}`}>
-            {category.name}
-          </Link>
+          <CategoryItem key={category.id}>
+            <Link to={`/category/${category.name}`}>{category.name}</Link>
+            <Tooltip>{category.description}</Tooltip>
+          </CategoryItem>
         </PostCategory>
         <PostTitle>{title}</PostTitle>
         <PostDate>{date}</PostDate>

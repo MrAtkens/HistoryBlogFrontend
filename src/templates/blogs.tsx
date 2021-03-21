@@ -5,7 +5,7 @@ import {observer} from "mobx-react-lite";
 
 import { FaSortAlphaDownAlt, FaSortAlphaUpAlt, FaRegCalendarPlus, FaRegCalendarMinus, AiFillEye, AiFillEyeInvisible } from "react-icons/all";
 import {FeaturedPostCol, FeaturedPostRow} from "containers/home/posts/style";
-import { TagName, TagPageHeading, BlogPostsWrapper, Button, SortButtons, SortName, PostCategory } from "./blogsStyle.style";
+import { TagName, TagPageHeading, BlogPostsWrapper, Button, SortButtons, SortName, PostCategory, CategoryItem, Tooltip } from "./blogsStyle.style";
 import Pagination from "components/pagination/pagination";
 import blogs from 'stores/blogsStore'
 import category from 'stores/categoriesStore'
@@ -31,9 +31,10 @@ const Blogs = observer(() => {
                     <PostCategory>
                         {category.getCategoriesTable.map(category => {
                            return (
-                                   <Link key={category.id} to={`/category/${category.name}`}>
-                                       {category.name}
-                                   </Link>
+                               <CategoryItem key={category.id}>
+                                   <Link to={`/category/${category.name}`}>{category.name}</Link>
+                                   <Tooltip>{category.description}</Tooltip>
+                               </CategoryItem>
                            )
                         })}
                     </PostCategory>

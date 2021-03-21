@@ -4,8 +4,6 @@ import { themeGet } from '@styled-system/theme-get';
 export const PostDetailsWrapper = styled.div`
   position: relative;
   overflow-wrap: anywhere;
-
-  
 `;
 
 export const PostTitle = styled.h1`
@@ -103,10 +101,58 @@ export const PostDescriptionWrapper = styled.div`
 `;
 
 export const PostDescription = styled.div`
+  img{
+     max-width: 1170px !important;
+  }
+ @media (max-width: 1600px) {
+     iframe{
+            width: 90%;    
+       }
+       img{
+           width: 940px !important;
+           height: 617px !important;
+       }
+       h1, h2, h3, p, a{
+        overflow-wrap: anywhere;
+       }
+  }
+  @media (max-width: 1200px) {
+     iframe{
+            width: 90%;    
+       }
+       img{
+           width: 640px !important;
+           height: 420px !important;
+       }
+       h1, h2, h3, p, a{
+        overflow-wrap: anywhere;
+       }
+  }
+  
+   @media (max-width: 875px) {
+   iframe{
+        width: 90%;    
+   }
+   img{
+       width: 440px !important;
+       height: 289px !important;
+   }
+   h1, h2, h3, p, a{
+    overflow-wrap: anywhere;
+   }
+  }
+  
  @media (max-width: 575px) {
    iframe{
         width: 90%;    
-    }
+   }
+   img{
+       width: 340px !important;
+       height: 223px !important;
+   }
+   h1, h2, h3, p, a{
+    overflow-wrap: anywhere;
+   }
   }
 
 `;
