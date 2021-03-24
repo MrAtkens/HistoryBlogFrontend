@@ -3,7 +3,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import {Link} from "react-router-dom";
 import {observer} from "mobx-react-lite";
 import _ from "lodash";
-import { DiscussionEmbed } from 'disqus-react';
+import Disqus from "disqus-react"
 import SEO from 'components/seo';
 import PostCard from 'components/post-card/post-card';
 import PostDetails from 'components/post-details/post-details';
@@ -82,12 +82,12 @@ const BlogPostTemplate = observer(() => {
             </PostShare>
           </BlogPostFooter>
           <BlogPostComment>
-            <DiscussionEmbed
+            <Disqus.DiscussionEmbed
                 config={{
                 url: window.location.href,
                 identifier: blog.id,
                 title: blog.title,
-              }}  shortname={"blog.disqus.com/embed.js"}/>
+              }} shortname={"http-geeknhistory-kz"}/>
           </BlogPostComment>
         </BlogPostDetailsWrapper>
 

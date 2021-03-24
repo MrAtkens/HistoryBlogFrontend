@@ -4,10 +4,8 @@ import { URLBlog } from '../settings'
 axios.defaults.withCredentials = true
 
 const getCategoriesApi = async () => {
-    console.log(localStorage.getItem('token'));
     return await axios.get(`${URLBlog}/api/categories`, {headers:
             { Authorization: `Bearer ${localStorage.getItem('jwt_token')}` }}).then(response => {
-                console.log(response)
         return response
     }).catch(error => {
         return error.response

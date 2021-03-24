@@ -4,7 +4,6 @@ import { URLBlog } from '../settings'
 axios.defaults.withCredentials = true
 
 const getBlogsApi = async (currentPage, countPerPage) => {
-    console.log(localStorage.getItem('token'));
     return await axios.post(`${URLBlog}/api/blog/page`, {
         page: currentPage,
         countPerPage: countPerPage

@@ -19,7 +19,6 @@ class Quotes implements ISystem{
 
     async getQuotes(){
         const response = await quotesService.getQuotesApi()
-        console.log(response)
         this.setQuotes(response.data)
     }
 
@@ -31,7 +30,6 @@ class Quotes implements ISystem{
                 findQuote.alt = quote.image.alt
             }
         })
-        console.log(findQuote)
         return findQuote;
     }
 

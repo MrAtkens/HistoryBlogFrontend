@@ -36,7 +36,6 @@ class System implements ISystem{
 
     async getUserData(){
         const response = await authenticationService.userGetData();
-        console.log(response)
         if(response.status === 200) {
             this.setId(response.data.id)
             this.setLogin(response.data.login)

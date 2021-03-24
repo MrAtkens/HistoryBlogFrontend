@@ -22,7 +22,6 @@ const Quotes: React.FunctionComponent<IntroProps> = observer(() => {
   return (
       <Carousel showArrows={true} showStatus={false} emulateTouch={true}>
         {quotes.getQuotesTable.map(quote => {
-          console.log(quote)
           return (
               <IntroWrapper key={quote.id}>
                 <IntroImage>

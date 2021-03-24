@@ -18,7 +18,6 @@ const userSingInApi = async (login, password) => {
 
 
 const userGetData = async () => {
-  console.log(localStorage.getItem('jwt_token'));
   return await axios.get(`${URLAuth}/api/auth/GetUserData`, {headers:
         { Authorization: `Bearer ${localStorage.getItem('jwt_token')}` }}).then(response => {
     return response

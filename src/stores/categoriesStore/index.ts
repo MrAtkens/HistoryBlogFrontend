@@ -20,7 +20,6 @@ class Categories implements ISystem{
 
     async getCategories(){
         const response = await categoriesService.getCategoriesApi()
-        console.log(response)
         this.setCategories(response.data)
     }
 
@@ -32,7 +31,6 @@ class Categories implements ISystem{
                 findCategory.alt = category.image.alt
             }
         })
-        console.log(findCategory)
         return findCategory;
     }
 
@@ -46,7 +44,6 @@ class Categories implements ISystem{
         this.categories.forEach(element => {
             option.push({name: element.name, value: element.id, id: element.id})
         })
-        console.log(option)
         return option;
     }
 

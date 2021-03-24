@@ -45,13 +45,11 @@ class Blogs implements ISystem{
 
     async getPageCount(){
         const response = await blogsService.getPageCount();
-        console.log(response)
         this.countOfPages = response.data
     }
 
     async getBlogs(){
         const response = await blogsService.getBlogsApi(this.currentPage, this.countOfBlogsOnPage)
-        console.log(response)
         this.setBlogs(response.data)
     }
 
@@ -62,26 +60,21 @@ class Blogs implements ISystem{
 
     async getFeaturedBlogs(){
         const response = await blogsService.getFeaturedBlogs();
-        console.log(response)
         this.setFeaturedBlogs(response.data)
     }
 
     async getBlogsByTag(tag){
         const response = await blogsService.getBlogsByTag(tag);
-        console.log(response)
         this.setBlogsByTags(response.data)
     }
 
     async getBlogsByCategory(category){
         const response = await blogsService.getBlogsByCategory(category)
-        console.log(response)
         this.setBlogsByCategory(response.data)
     }
 
     async getRelatedBlogs(id, category){
-        console.log(category)
         const response = await blogsService.getRelatedBlogs(id, category)
-        console.log(response)
         this.setRelatedBlogs(response.data)
     }
 
