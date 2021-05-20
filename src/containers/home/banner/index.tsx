@@ -41,7 +41,7 @@ const Banner: React.FunctionComponent<BannerProps> = observer(() => {
                       <BannerWrapper key={blog.id} style={{backgroundImage: `url(${blog.image.webImagePath})`}}>
                           <BannerInner>
                               <FeaturePosts>
-                                  <Title>Featured Post</Title>
+                                  <Title>Рекомендуемые статьи</Title>
                                   <FeaturePost
                                       key={blog.id}
                                       title={title}

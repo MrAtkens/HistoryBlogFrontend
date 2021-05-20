@@ -8,7 +8,7 @@ const ContactPage: React.FunctionComponent<ContactPageProps> = () => {
   return (
     <>
       <SEO
-        title="Contact Us"
+        title="Контакты"
         description="history, Geek'n'History blog, kazakhstan"
       />
 

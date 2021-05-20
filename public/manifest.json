@@ -1,15 +1,16 @@
 {
-  "short_name": "PickBazar",
-  "name": "PickBazar",
+  "short_name": "Geek'n'History",
+  "name": "Geek'n'History",
+  "description": "Blog about history with easy writing. Блог о историй лёгким и понятным языком",
+  "lang": "ru",
   "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    }
+    { "src": "/icons/favicon.ico", "sizes": "32x32 16x16", "type": "image/x-icon" },
+    { "src":"/icons/android-chrome-192x192.png", "sizes":"192x192", "type":"image/png" },
+    { "src":"/icons/android-chrome-512x512.png", "sizes":"512x512", "type":"image/png" }
   ],
   "start_url": ".",
+  "prefer_related_applications": true,
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#D10068",
   "background_color": "#ffffff"
 }

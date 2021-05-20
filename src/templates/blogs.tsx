@@ -27,7 +27,6 @@ const Blogs = observer(() => {
             <BlogPostsWrapper>
                 <SEO title={"Blogs in Geek'n'history"} description={`A collection of blogs`} />
                 <TagPageHeading>
-                    <TagName>Blogs in Geek'n'history</TagName>
                     <PostCategory>
                         {category.getCategoriesTable.map(category => {
                            return (

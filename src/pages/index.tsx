@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <>
       <SEO
-        title="Geek'n'History blog"
+        title="Домашняя страница"
         description={"history, Geek'n'History blog, kazakhstan"}
       />
       <PersonalBlog />

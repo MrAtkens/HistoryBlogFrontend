@@ -38,6 +38,7 @@ class Blogs implements ISystem{
     blogsSortByView = false;
     blogsSortByDate = false;
     blogsSortTitle = "Sort by Title ↑";
+    blogLoading = false;
 
     constructor() {
         makeAutoObservable(this)
@@ -81,10 +82,12 @@ class Blogs implements ISystem{
     async getBlogById(id) {
         const response = await blogsService.getBlogByIdAPI(id);
         const blog = response.data;
-        blog.tags = blog.tags.split(' ')
-        blog.tags.pop()
-        console.log(blog)
-        this.setBlog(response.data)
+        if(response.status === 200) {
+            blog.tags = blog.tags.split(' ')
+            blog.tags.pop()
+            this.setBlog(response.data)
+            this.blogLoading = true;
+        }
     }
 
     sortBy(type){

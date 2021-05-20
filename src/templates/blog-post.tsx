@@ -1,9 +1,11 @@
 import React, {useEffect} from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import {Link} from "react-router-dom";
 import {observer} from "mobx-react-lite";
-import _ from "lodash";
+import {Link} from "react-router-dom";
 import Disqus from "disqus-react"
+import _ from "lodash";
+import Skeleton from "react-loading-skeleton";
+
 import SEO from 'components/seo';
 import PostCard from 'components/post-card/post-card';
 import PostDetails from 'components/post-details/post-details';
@@ -50,68 +52,70 @@ const BlogPostTemplate = observer(() => {
             title={blog.title}
             description={blog.description}
         />
-        <BlogPostDetailsWrapper>
-          <PostDetails
-              category={blog.category}
-              title={blog.title}
-              date={blog.creationDate}
-              preview={blog.image.webImagePath}
-              description={blog.mainBlogText}
-          />
-          <BlogPostFooter>
-            {blog.tags == null ? null : (
-                <PostTags className="post_tags">
-                  {blog.tags.map(tag => (
-                      <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
-                        #{_.kebabCase(tag)}
-                      </Link>
-                  ))}
-                </PostTags>
-            )}
-            <PostShare>
-              <span>Share This:</span>
-              <FacebookShareButton url={location.pathname} quote={blog.title}>
-                <IoLogoFacebook />
-              </FacebookShareButton>
-              <VKShareButton url={location.pathname} title={blog.title} image={blog.image.webImagePath}>
-                <IoLogoVk/>
-              </VKShareButton>
-              <InstapaperShareButton url={location.pathname} title={blog.title}>
-                <IoLogoInstagram/>
-              </InstapaperShareButton>
-            </PostShare>
-          </BlogPostFooter>
-          <BlogPostComment>
-            <Disqus.DiscussionEmbed
-                config={{
-                url: window.location.href,
-                identifier: blog.id,
-                title: blog.title,
-              }} shortname={"http-geeknhistory-kz"}/>
-          </BlogPostComment>
-        </BlogPostDetailsWrapper>
-
-        {blogs.getRelatedBlogsTable.length !== 0 && (
-            <RelatedPostWrapper>
-              <RelatedPostTitle>Related Posts</RelatedPostTitle>
-              <RelatedPostItems>
-                {blogs.getRelatedBlogsTable.map(blog => {
-                  const tags = blog.tags.split(' ');
-                  tags.pop()
-                  return(
-                  <RelatedPostItem key={blog.id}>
-                    <PostCard
-                        title={blog.title}
-                        url={"/blog/" + blog.id}
-                        image={blog.image.webImagePath}
-                        tags={tags}
-                    />
-                  </RelatedPostItem>
-                  )
-                })}
-              </RelatedPostItems>
-            </RelatedPostWrapper>
-        )}
+        {blogs.blogLoading === true ? (
+            <>
+          <BlogPostDetailsWrapper>
+                <PostDetails
+                category={blog.category}
+                title={blog.title}
+                date={blog.creationDate}
+                preview={blog.image.webImagePath}
+                description={blog.mainBlogText}
+                />
+            <BlogPostFooter>
+              {blog.tags == null ? null : (
+                  <PostTags className="post_tags">
+                    {blog.tags.map(tag => (
+                        <Link key={tag} to={`/tags/${_.kebabCase(tag)}/`}>
+                          #{_.kebabCase(tag)}
+                        </Link>
+                    ))}
+                  </PostTags>
+              )}
+              <PostShare>
+                <span>Share This:</span>
+                <FacebookShareButton url={location.pathname} quote={blog.title}>
+                  <IoLogoFacebook />
+                </FacebookShareButton>
+                <VKShareButton url={location.pathname} title={blog.title} image={blog.image.webImagePath}>
+                  <IoLogoVk/>
+                </VKShareButton>
+                <InstapaperShareButton url={location.pathname} title={blog.title}>
+                  <IoLogoInstagram/>
+                </InstapaperShareButton>
+              </PostShare>
+            </BlogPostFooter>
+            <BlogPostComment>
+              <Disqus.DiscussionEmbed
+                  config={{
+                  url: window.location.href,
+                  identifier: blog.id,
+                  title: blog.title,
+                }} shortname={"http-geeknhistory-kz"}/>
+            </BlogPostComment>
+          </BlogPostDetailsWrapper>
+          {blogs.getRelatedBlogsTable.length !== 0 && (
+              <RelatedPostWrapper>
+                <RelatedPostTitle>Related Posts</RelatedPostTitle>
+                <RelatedPostItems>
+                  {blogs.getRelatedBlogsTable.map(blog => {
+                    const tags = blog.tags.split(' ');
+                    tags.pop()
+                    return(
+                    <RelatedPostItem key={blog.id}>
+                      <PostCard
+                          title={blog.title}
+                          url={"/blog/" + blog.id}
+                          image={blog.image.webImagePath}
+                          tags={tags}
+                      />
+                    </RelatedPostItem>
+                    )
+                  })}
+                </RelatedPostItems>
+              </RelatedPostWrapper>)}
+              </>
+          ) : (<Skeleton count={1} width={1170} height={670}/>)}
       </>
   );
 });

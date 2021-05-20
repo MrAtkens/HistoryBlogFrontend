@@ -52,10 +52,9 @@ const Contact: React.SFC<{}> = observer(() => {
           <Form>
             <ContactWrapper>
               <ContactPageTitle>
-                <h2>Contact</h2>
-                <p>
-                  Geek'n'history contacts
-                </p>
+                <h2>Контакты</h2>
+                <p>Телефон: </p>
+                <p>Почта: </p>
               </ContactPageTitle>
               <ContactFromWrapper>
                 <InputGroup>

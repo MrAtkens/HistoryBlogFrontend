@@ -8,7 +8,7 @@ const AboutPage: React.FunctionComponent<AboutPageProps> = () => {
   return (
     <>
       <SEO
-        title="About Us"
+        title="О нас"
         description="history, Geek'n'History blog, kazakhstan"
       />
       <About />

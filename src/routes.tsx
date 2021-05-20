@@ -1,10 +1,8 @@
-import React, { lazy, Suspense, useEffect } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify'
 import {observer} from "mobx-react-lite";
 import { Route, Switch, Redirect } from 'react-router-dom';
-import {
-    LOGIN, ABOUT, HOME, CONTACT, CATEGORY, BLOG, TAG, BLOGS
-} from 'settings/constants';
+import { ABOUT, HOME, CONTACT, CATEGORY, BLOG, TAG, BLOGS } from 'settings/constants';
 
 import system from 'stores/systemStore';
 
@@ -41,10 +39,6 @@ function PrivateRoute({ system, children, ...rest }) {
 }
 
 const Routes = observer(() => {
-  // useEffect(() => {
-  //   if(system.getAuthenticated)
-  //     system.getUserData()
-  // }, []);
 
       return (
       <Suspense fallback={""}>

@@ -20,12 +20,10 @@ const Layout: React.FunctionComponent<LayoutProps> = ({ children }) => {
         <Sticky top={0} innerZ={9999} activeClass="nav-sticky">
           <Navbar />
         </Sticky>
-
         {children}
-
         <Footer>
-          Hello it's &copy; {new Date().getFullYear()}
-          <a href=""> Geek'n'History.</a>
+          Copyright &copy; {new Date().getFullYear()}
+          <a href="https://geeknhistory.kz/">Geek'n'History.</a>
         </Footer>
         <ScrollToTop
           showUnder={300}

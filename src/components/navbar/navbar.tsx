@@ -24,19 +24,19 @@ type NavbarProps = {
 
 const MenuItems = [
   {
-    label: 'Home',
+    label: 'Главная',
     url: HOME,
   },
   {
-    label: 'Blogs',
+    label: 'Статьи',
     url: BLOGS,
   },
   {
-    label: 'About',
+    label: 'О нас',
     url: ABOUT,
   },
   {
-    label: 'Contact',
+    label: 'Контакты',
     url: CONTACT,
   },
 ];

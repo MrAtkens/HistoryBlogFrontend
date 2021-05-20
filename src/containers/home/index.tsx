@@ -1,6 +1,5 @@
 import * as React from 'react';
 import PersonalBlogWrapper from './style';
-import Newsletter from 'components/newsletter/newsletter';
 import Posts from './posts';
 import Banner from './banner';
 import Quotes from './quote'
@@ -22,7 +21,6 @@ const PersonalBlog: React.FunctionComponent<PersonalBlogProps> = (props) => {
       <Banner/>
       <Posts />
       <Quotes />
-      <Newsletter/>
     </PersonalBlogWrapper>
   );
 };
