@@ -10,6 +10,5 @@ const nextSettings = {
   },
 };
 
-module.exports = withPlugins([withImages(), nextSettings]);
 
 module.exports = withPlugins([withImages(), nextSettings]);
