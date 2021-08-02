@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Image from 'next/image'
 import {
     IoLogoFacebook,
     IoLogoTwitter,
@@ -42,7 +41,7 @@ const AboutPage = () => {
             <Intro />
 
             <AboutImage>
-                <Image src={image} alt="author" />
+                <img src={image} alt="author" />
             </AboutImage>
 
             <AboutDetails>

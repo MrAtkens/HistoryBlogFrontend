@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Link from "next/link";
-import Image from "next/image"
 
 import {
   FeaturedCardWrapper,
@@ -41,7 +40,7 @@ const FeaturedCard= ({
       {image == null ? null : (
         <PostPreview className="post_preview">
           <Link href={url}>
-              <Image src={image.webImagePath} alt={image.alt} />
+              <img src={image.webImagePath} alt={image.alt} />
           </Link>
         </PostPreview>
       )}

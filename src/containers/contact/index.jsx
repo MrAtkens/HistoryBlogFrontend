@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { Formik, Form } from 'formik';
 import {observer} from "mobx-react-lite";
 
 import Input from '~/components/input/input';

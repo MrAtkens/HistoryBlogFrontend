@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Image from 'next/image';
 import Link from "next/link";
 
 import {
@@ -35,7 +34,7 @@ const PostList = ({
 			<Link href={url}>
 				{image == null ? null : (
 					<PostPreview className='post_preview'>
-						<Image
+						<img
 							src={image.webImagePath}
 							alt={image.alt}
 						/>

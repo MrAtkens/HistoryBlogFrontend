@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from "next/image"
 import {observer} from "mobx-react-lite";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -23,7 +22,7 @@ const Quotes = observer(() => {
           return (
               <IntroWrapper key={quote.id}>
                 <IntroImage>
-                  <Image src={quote.image.webImagePath} alt={quote.image.alt}/>
+                  <img src={quote.image.webImagePath} alt={quote.image.alt}/>
                 </IntroImage>
                 <IntroInfo>
                   <IntroTitle>
