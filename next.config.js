@@ -1,4 +1,5 @@
 module.exports = {
+  target: "serverless",
   env: {
     PUBLIC_URL: ""
   },
