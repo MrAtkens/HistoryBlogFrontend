@@ -5,5 +5,4 @@ module.exports = {
   images: {
     domains: ['historyblogkazakhstan.s3.ap-northeast-2.amazonaws.com'],
   },
-  target: "serverless",
 };
