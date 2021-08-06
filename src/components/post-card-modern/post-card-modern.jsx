@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Link from "next/link";
-import Image from "next/image";
 
 import {
   PostCardModernWrapper,
@@ -39,12 +38,12 @@ const PostCardModern = ({
         <PostPreview className="post_preview">
           <Link to={url}>
             {imageType === 'fluid' ? (
-              <Image
+              <img
                 src={image}
                 alt="post preview"
               />
             ) : (
-              <Image
+              <img
                 src={image}
                 alt="post preview"
               />

@@ -10,7 +10,10 @@ import blogs from '~/stores/blogStore'
 const Banner = observer(() => {
 
     useEffect(() => {
-        blogs.getFeaturedBlogs()
+        blogs.getFeaturedBlogs().then(() => {
+            console.log("Blogs Featured")
+            console.log(blogs.featuredBlogs)
+        })
     },[])
 
   return (

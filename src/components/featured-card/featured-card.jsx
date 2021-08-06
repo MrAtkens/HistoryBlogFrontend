@@ -1,6 +1,4 @@
 import * as React from 'react';
-import Link from "next/link";
-import Image from "next/image"
 
 import {
   FeaturedCardWrapper,
@@ -28,7 +26,7 @@ const FeaturedCard= ({
 }) => {
   const addClass = ['featured_card'];
 
-  if (overlay == true) {
+  if (overlay === true) {
     addClass.push('overlay');
   }
 
@@ -40,29 +38,29 @@ const FeaturedCard= ({
     <FeaturedCardWrapper className={addClass.join(' ')} {...props}>
       {image == null ? null : (
         <PostPreview className="post_preview">
-          <Link href={url}>
-              <Image src={image.webImagePath} alt={image.alt} />
-          </Link>
+          <a href={url}>
+              <img src={image.webImagePath} alt={image.alt} />
+          </a>
         </PostPreview>
       )}
 
       <PostDetails className="post_details">
         <PostMeta>
-          {tags == null || overlay == true ? null : (
+          {tags == null || overlay === true ? null : (
             <PostTags className="post_tags">
               {tags.map((tag, index) => (
-                <Link key={index} href={`/tags/${tag.toLowerCase()}`}>
+                <a key={index} href={`/tags/${tag.toLowerCase()}`}>
                   #{tag.toLowerCase()}
-                </Link>
+                </a>
               ))}
             </PostTags>
           )}
         </PostMeta>
 
         <PostTitle className="post_title">
-          <Link href={url}>{title}</Link>
+          <a href={url}>{title}</a>
         </PostTitle>
-        {overlay == true ? (
+        {overlay === true ? (
           ''
         ) : (
           <>
@@ -79,9 +77,9 @@ const FeaturedCard= ({
         )}
 
         <ReadMore className="read_more">
-            <Link  key={category.id} href={`/category/${category.name}`}>
+            <a href={`/category/${category.name}`}>
               <a className="category">{category.name}</a>
-            </Link>
+            </a>
           <a className="date">{creationDate}</a>
         </ReadMore>
       </PostDetails>

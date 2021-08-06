@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Image from 'next/image'
 import {
     IoLogoFacebook,
     IoLogoTwitter,
@@ -9,7 +8,6 @@ import {
 
 import { AboutWrapper, AboutImage, AboutDetails, SocialProfiles, Intro } from '~/containers/about'
 import SocialProfile from '~/components/social-profile/social-profile';
-import image from '~/assets/image/about.jpg'
 
 const SocialLinks = [
     {
@@ -42,7 +40,7 @@ const AboutPage = () => {
             <Intro />
 
             <AboutImage>
-                <Image src={image} alt="author" />
+                <img src='/static/image/about.jpg' alt="author" />
             </AboutImage>
 
             <AboutDetails>

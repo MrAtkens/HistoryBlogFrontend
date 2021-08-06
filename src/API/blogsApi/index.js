@@ -60,6 +60,7 @@ const getFeaturedBlogs = async () => {
 
 const getLatestBlogs = async () => {
     return await axios.get(`${URLBlog}/api/blog/latest`).then(response => {
+        console.log(response)
         return response
     }).catch(error => {
         return error.response

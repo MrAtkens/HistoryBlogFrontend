@@ -15,7 +15,7 @@ const Posts = observer(() => {
       <FeaturedPostWrapper>
           <SecTitle>Новые статьи</SecTitle>
           <FeaturedPostRow>
-              {blogs.getLatestBlogsTable.map(blog => {
+              {blogs.latestBlogs.map(blog => {
                   const title = blog.title
                   const tags = blog.tags.split(' ');
                   tags.pop()

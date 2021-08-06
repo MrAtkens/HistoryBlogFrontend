@@ -4,6 +4,7 @@ import { quotesService } from '~/API'
 
 class Quotes{
     quotes = [];
+    isLoading = false;
     error = "";
     id = "";
 
@@ -14,6 +15,7 @@ class Quotes{
     async getQuotes(){
         const response = await quotesService.getQuotesApi()
         this.setQuotes(response.data)
+        this.isLoading = true
     }
 
     get getQuoteById(){

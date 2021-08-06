@@ -9,13 +9,15 @@ const HomePage = (props) => {
         blogStore.getLatestBlogs().then(async () => {
             await quoteStore.getQuotes();
         });
+        console.log(quoteStore.quotes)
+        console.log(blogStore.latestBlogs)
     },[])
 
     return (
         <PersonalBlogWrapper {...props}>
-            <Banner/>
-            <Posts/>
-            <Quotes/>
+            {quoteStore.isLoading === true ? (<Banner/>) : (null)}
+            {quoteStore.isLoading === true ? (<Posts/>) : (null)}
+            {quoteStore.isLoading === true ? (<Quotes/>) : (null)}
         </PersonalBlogWrapper>
     );
 };

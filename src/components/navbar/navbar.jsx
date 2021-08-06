@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { IoIosSearch, IoIosClose } from 'react-icons/io';
 import Router from 'next/router'
-import Image from "next/image"
 
 import HeaderWrapper, {
   NavbarWrapper,
@@ -12,7 +11,6 @@ import HeaderWrapper, {
   SearchCloseButton,
   NavSearchFromWrapper,
 } from './navbar.style';
-import LogoImage from '~/assets/image/logo.png';
 
 import SearchContainer from '~/containers/search/search';
 import {HOME, CONTACT, ABOUT, BLOGS} from "~/settings/constants";
@@ -71,10 +69,10 @@ const Navbar = ({
     <HeaderWrapper className={addAllClasses.join(' ')} {...props}>
       <NavbarWrapper className="navbar">
         <DrawerProvider>
-          <MobileMenu items={MenuItems} logo={LogoImage} />
+          <MobileMenu items={MenuItems} logo='/static/image/logo.png'/>
         </DrawerProvider>
         <Logo>
-          <Image src={LogoImage} alt="logo" onClick={redirectToHome} />
+          <img src='/static/image/logo.png' alt="logo" onClick={redirectToHome} />
         </Logo>
         <MenuWrapper>
           <Menu items={MenuItems} />

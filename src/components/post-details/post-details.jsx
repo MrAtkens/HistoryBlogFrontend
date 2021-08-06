@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Link from "next/link";
-import Image from "next/image";
 
 import {
   PostDetailsWrapper,
@@ -41,7 +40,7 @@ const PostDetails = ({
         <PostDate>{date}</PostDate>
       </>
       <PostPreview className="post_preview">
-        <Image aspectRatio={16/9} src={preview} alt={title} />
+        <img src={preview} alt={title} />
       </PostPreview>
 
       <PostDescriptionWrapper className="post_des_wrapper">

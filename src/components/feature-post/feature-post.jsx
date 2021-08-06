@@ -32,17 +32,15 @@ const FeaturedPost = ({
         <PostMeta>
           {tags == null ? null : (
               <PostTags className="post_tags">
-                {tags.slice(0, 2).map((tag, index) => (
-                    <Link
-                        key={index}
-                        href={`/tags/${tag.toLowerCase()}/`}
-                    >#{tag.toLowerCase()}</Link>
+                {tags.slice(0, 2).map((tag) => (
+                    <a href={`/tags/${tag.toLowerCase()}/`}
+                    >#{tag.toLowerCase()}</a>
                 ))}
               </PostTags>
           )}
         </PostMeta>
         <PostTitle className="post_title">
-          <Link href={url}>{title}</Link>
+          <a href={url}>{title}</a>
         </PostTitle>
         <>
           {' '}
@@ -56,9 +54,9 @@ const FeaturedPost = ({
           )}
         </>
         <ReadMore className="read_more">
-          <Link key={category.id} href={`/category/${category.name}`}>
+          <a href={`/category/${category.name}`}>
             <a className="category">{category.name}</a>
-          </Link>
+          </a>
           <a className="date">{creationDate}</a>
         </ReadMore>
       </PostDetails>

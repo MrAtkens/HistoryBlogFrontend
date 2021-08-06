@@ -51,6 +51,8 @@ class Blogs{
     async getLatestBlogs(){
         const response = await blogsService.getLatestBlogs();
         this.setLatestBlogs(response.data)
+        console.log(response.data)
+        console.log(this.latestBlogs)
     }
 
     async getFeaturedBlogs(){

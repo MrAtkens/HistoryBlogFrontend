@@ -5,6 +5,7 @@ axios.defaults.withCredentials = true
 
 const getQuotesApi = async () => {
     return await axios.get(`${URLBlog}/api/quotes`).then(response => {
+        console.log(response)
         return response
     }).catch(error => {
         return error.response

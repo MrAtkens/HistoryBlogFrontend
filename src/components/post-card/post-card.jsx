@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Link from "next/link";
-import Image from "next/image";
 
 import {
     PostCardWrapper,
@@ -39,9 +38,9 @@ const PostCard = ({
                 <PostPreview className="post_preview">
                     <Link href={url}>
                         {imageType === 'fluid' ? (
-                            <Image aspectRatio={17 / 11} src={image} alt="post preview"/>
+                            <img src={image} alt="post preview"/>
                         ) : (
-                            <Image aspectRatio={17 / 11} src={image} alt="post preview"/>
+                            <img src={image} alt="post preview"/>
                         )}
                     </Link>
                 </PostPreview>

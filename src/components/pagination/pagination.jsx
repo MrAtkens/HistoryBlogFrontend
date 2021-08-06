@@ -21,7 +21,7 @@ const Pagination = observer(({
   return (
     <PaginationWrapper {...props} className={className}>
       <PrevPage>
-        {blogStore.getCurrentPage != 1 && (
+        {blogStore.getCurrentPage !== 1 && (
           <a onClick={() => blogStore.prevPage()} aria-label="Prev">
             <IoMdArrowRoundBack />
           </a>
@@ -31,7 +31,7 @@ const Pagination = observer(({
       <PageNumber>{`Page ${currentPage} Of ${totalPage}`}</PageNumber>
 
       <NextPage>
-        {Math.ceil(blogStore.getCountPages/blogStore.countOfBlogsOnPage) != blogStore.getCurrentPage && (
+        {Math.ceil(blogStore.getCountPages/blogStore.countOfBlogsOnPage) !== blogStore.getCurrentPage && (
           <a onClick={() => blogStore.nextPage()} aria-label="Next">
             <IoMdArrowRoundForward />
           </a>

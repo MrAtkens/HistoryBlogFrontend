@@ -1,10 +1,9 @@
 import React from 'react';
-import Image from "next/image"
 import {observer} from "mobx-react-lite";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import quotes from 'stores/quotesStore'
+import quoteStore from 'stores/quotesStore'
 
 import {
   IntroWrapper,
@@ -19,11 +18,11 @@ const Quotes = observer(() => {
 
   return (
       <Carousel showArrows={true} showStatus={false} emulateTouch={true}>
-        {quotes.getQuotesTable.map(quote => {
+        {quoteStore.getQuotesTable.map(quote => {
           return (
               <IntroWrapper key={quote.id}>
                 <IntroImage>
-                  <Image src={quote.image.webImagePath} alt={quote.image.alt}/>
+                  <img src={quote.image.webImagePath} alt={quote.image.alt}/>
                 </IntroImage>
                 <IntroInfo>
                   <IntroTitle>
