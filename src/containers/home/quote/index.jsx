@@ -24,7 +24,7 @@ const Quotes = observer(({posts}) => {
           return (
               <IntroWrapper key={quote.id}>
                 <IntroImage>
-                  <Image src={quote.image.webImagePath} alt={quote.image.alt}/>
+                  <img src={quote.image.webImagePath} alt={quote.image.alt}/>
                 </IntroImage>
                 <IntroInfo>
                   <IntroTitle>
