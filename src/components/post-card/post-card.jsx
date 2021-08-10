@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Image from 'material-ui-image'
 import Link from "next/link";
 
 import {
@@ -11,13 +12,13 @@ import {
     PostContent,
     PostTags,
 } from './post-card.style';
-
+import kebabCase from "kebab-case";
 
 const PostCard = ({
                       image,
                       title,
                       description,
-                      url,
+                      id,
                       date,
                       tags,
                       className,
@@ -36,12 +37,14 @@ const PostCard = ({
         <PostCardWrapper className={addAllClasses.join(' ')} {...props}>
             {image == null ? null : (
                 <PostPreview className="post_preview">
-                    <Link href={url}>
-                        {imageType === 'fluid' ? (
-                            <img src={image} alt="post preview"/>
-                        ) : (
-                            <img src={image} alt="post preview"/>
-                        )}
+                    <Link href={{
+                        pathname: '/blog/[slug]',
+                        query: {slug: id},
+                    }}>                        {imageType === 'fluid' ? (
+                        <Image aspectRatio={17 / 11} src={image} alt="post preview"/>
+                    ) : (
+                        <Image aspectRatio={17 / 11} src={image} alt="post preview"/>
+                    )}
                     </Link>
                 </PostPreview>
             )}
@@ -58,7 +61,12 @@ const PostCard = ({
 
                 <PostContent className="post_content">
                     <PostTitle className="post_title">
-                        <Link href={url}>{title}</Link>
+                        <Link href={{
+                            pathname: '/blog/[slug]',
+                            query: {slug: id},
+                        }}>
+                            {title}
+                        </Link>
                     </PostTitle>
                     {description && (
                         <Excerpt
@@ -71,9 +79,12 @@ const PostCard = ({
 
                     {tags == null ? null : (
                         <PostTags className="post_tags">
-                            {tags.map((tag, index) => (
-                                <Link key={index} to={`/tags/${tag.toLowerCase()}/`}>
-                                    #{tag.toLowerCase()}
+                            {tags.map((tag) => (
+                                <Link href={{
+                                    pathname: '/tags/[slug]',
+                                    query: {slug: kebabCase(tag.slice(1))},
+                                }}>
+                                    {kebabCase(tag)}
                                 </Link>
                             ))}
                         </PostTags>

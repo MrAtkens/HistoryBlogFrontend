@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from "next/link";
+import kebabCase from "kebab-case";
 
 import {
 	PostListWrapper,
@@ -14,7 +15,7 @@ import {
 const PostList = ({
 	image,
 	title,
-	url,
+	id,
 	date,
 	tags,
 	className,
@@ -31,7 +32,10 @@ const PostList = ({
 
 	return (
 		<PostListWrapper className={addAllClasses.join(' ')} {...props}>
-			<Link href={url}>
+			<Link href={{
+				pathname: '/blog/[slug]',
+				query: {slug: id},
+			}}>
 				{image == null ? null : (
 					<PostPreview className='post_preview'>
 						<img
@@ -54,8 +58,13 @@ const PostList = ({
 						)}
 						{tags == null ? null : (
 							<PostTags className='post_tags'>
-								{tags.map((tag, index) => (
-									<span key={index}>{`#${tag.toLowerCase()}`}</span>
+								{tags.map((tag) => (
+									<Link href={{
+										pathname: '/tags/[slug]',
+										query: {slug: kebabCase(tag.slice(1))},
+									}}>
+										{kebabCase(tag)}
+									</Link>
 								))}
 							</PostTags>
 						)}

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -9,16 +9,9 @@ import blogs from '~/stores/blogStore'
 
 const Banner = observer(() => {
 
-    useEffect(() => {
-        blogs.getFeaturedBlogs().then(() => {
-            console.log("Blogs Featured")
-            console.log(blogs.featuredBlogs)
-        })
-    },[])
-
   return (
       <Carousel showArrows={true} showStatus={false} emulateTouch={true}>
-          {blogs.getFeaturedBlogsTable.map(blog => {
+          {blogs.featuredBlogs.map(blog => {
               const title = blog.title;
               // Random Placeholder Color
               const placeholderColors = [
@@ -50,7 +43,7 @@ const Banner = observer(() => {
                                       category={blog.category}
                                       description={blog.description}
                                       creationDate={blog.creationDate}
-                                      url={"/blog/"+blog.id}
+                                      id={blog.id}
                                       tags={tags}
                                       placeholderBG={setColor}
                                   />

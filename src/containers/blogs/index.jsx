@@ -1,11 +1,11 @@
 import React from 'react';
 import {observer} from "mobx-react-lite";
+import Link from "next/link";
 import { FaSortAlphaDownAlt, FaSortAlphaUpAlt, FaRegCalendarPlus, FaRegCalendarMinus } from "react-icons/fa";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
-import Link from "next";
 
+import { TagPageHeading, BlogPostsWrapper, Button, SortButtons, SortName, PostCategory, CategoryItem, Tooltip } from "./blogsStyle.style";
 import {FeaturedPostCol, FeaturedPostRow} from "~/containers/home/posts/style";
-import { TagName, TagPageHeading, BlogPostsWrapper, Button, SortButtons, SortName, PostCategory, CategoryItem, Tooltip } from "./blogsStyle.style";
 import FeaturedCard from "~/components/featured-card/featured-card"
 import Pagination from "~/components/pagination/pagination";
 
@@ -22,7 +22,10 @@ const Blogs = observer(() => {
                         {category.getCategoriesTable.map(category => {
                            return (
                                <CategoryItem key={category.id}>
-                                   <Link href={`/category/${category.name}`}>{category.name}</Link>
+                                   <Link href={{
+                                       pathname: '/category/[slug]',
+                                       query: {slug: category.name},
+                                   }}>{category.name}</Link>
                                    <Tooltip>{category.description}</Tooltip>
                                </CategoryItem>
                            )
@@ -59,7 +62,7 @@ const Blogs = observer(() => {
                                     category={item.category}
                                     image={item.image}
                                     creationDate={item.creationDate}
-                                    url={"/blog/" + item.id}
+                                    id={item.id}
                                     description={item.description}
                                     tags={tags}
                                 />

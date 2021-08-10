@@ -61,7 +61,7 @@ const Contact = observer(() => {
                     value={`${values.firstName}`}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    label="Name"
+                    label="Имя или псевдоним"
                     notification={`${
                       errors.firstName && touched.firstName
                         ? errors.firstName
@@ -74,7 +74,7 @@ const Contact = observer(() => {
                     value={`${values.email}`}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    label="Email"
+                    label="Почта"
                     notification={`${
                       errors.email && touched.email ? errors.email : ''
                     }`}
@@ -86,16 +86,16 @@ const Contact = observer(() => {
                   value={`${values.message}`}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  label="Message"
+                  label="Сообщение"
                   notification={
                     errors.message && touched.message ? errors.message : ''
                   }
                 />
                 <Button
-                  title="Submit"
+                  title="Отправить"
                   type="submit"
                   isLoading={isSubmitting ? true : false}
-                  loader="Submitting.."
+                  loader="Отправляется.."
                 />
               </ContactFromWrapper>
             </ContactWrapper>

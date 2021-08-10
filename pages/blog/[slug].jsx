@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react';
 import {observer} from "mobx-react-lite";
 import Disqus from "disqus-react"
+import Link from "next/link"
+
 import Skeleton from "react-loading-skeleton";
 import {
     FacebookShareButton,
@@ -30,6 +32,7 @@ import {
 } from '~/containers/templates.style';
 import blogStore from '~/stores/blogStore'
 import {useRouter} from "next/router";
+import kebabCase from "kebab-case";
 
 const BlogPostTemplate = observer(() => {
     // @ts-ignore
@@ -59,8 +62,11 @@ const BlogPostTemplate = observer(() => {
                             {blog.tags == null ? null : (
                                 <PostTags className="post_tags">
                                     {blog.tags.map(tag => (
-                                        <Link key={tag} to={`/tags/${tag.toLowerCase()}/`}>
-                                            #{tag.toLowerCase()}
+                                        <Link href={{
+                                            pathname: '/tags/[slug]',
+                                            query: {slug: kebabCase(tag)},
+                                        }}>
+                                            {kebabCase(tag)}
                                         </Link>
                                     ))}
                                 </PostTags>
@@ -98,7 +104,7 @@ const BlogPostTemplate = observer(() => {
                                         <RelatedPostItem key={blog.id}>
                                             <PostCard
                                                 title={blog.title}
-                                                url={"/blog/" + blog.id}
+                                                id={blog.id}
                                                 image={blog.image.webImagePath}
                                                 tags={tags}
                                             />
@@ -108,7 +114,7 @@ const BlogPostTemplate = observer(() => {
                             </RelatedPostItems>
                         </RelatedPostWrapper>)}
                 </>
-            ) : (<Skeleton count={1} width={1170} height={670}/>)}
+            ) : (<Skeleton className="blog-detail-skeleton" count={1} width={1170} height={670}/>)}
         </>
     );
 });

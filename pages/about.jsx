@@ -5,6 +5,7 @@ import {
     IoLogoInstagram,
     IoLogoLinkedin,
 } from 'react-icons/io';
+import Image from "material-ui-image"
 
 import { AboutWrapper, AboutImage, AboutDetails, SocialProfiles, Intro } from '~/containers/about'
 import SocialProfile from '~/components/social-profile/social-profile';
@@ -38,13 +39,12 @@ const AboutPage = () => {
     return (
         <AboutWrapper>
             <Intro />
-
             <AboutImage>
-                <img src='/static/image/about.jpg' alt="author" />
+                <Image aspectRatio={16/9} src='/static/image/about.jpg' alt="О нас" />
             </AboutImage>
 
             <AboutDetails>
-                <h2>Hey there, what’s up?</h2>
+                <h2>Хей ты пидор</h2>
                 <p>
                     Geek'n'History modern blog about history of Kazakhstan and world
                 </p>

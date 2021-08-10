@@ -83,14 +83,13 @@ const Search = observer(() => {
                 className="search-scrollbar"
             >
               {queryResults.map((item) => {
-                console.log(item)
                 const tags = item.tags.split(' ')
                 tags.pop()
                 return (
                     <PostList
                         key={item.id}
                         title={item.title}
-                        url={"/blog/"+item.id}
+                        id={+item.id}
                         image={item.image}
                         date={item.date}
                         tags={tags}

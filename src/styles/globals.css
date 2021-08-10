@@ -14,3 +14,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+.blog-detail-skeleton{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 90px 0 120px;
+}

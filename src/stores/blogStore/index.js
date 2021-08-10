@@ -31,7 +31,7 @@ class Blogs{
     blogsSortByAlpha = true;
     blogsSortByView = false;
     blogsSortByDate = false;
-    blogsSortTitle = "Sort by Title ↑";
+    blogsSortTitle = "Сортировка по названию ↑";
     blogLoading = false;
 
     constructor() {
@@ -51,8 +51,6 @@ class Blogs{
     async getLatestBlogs(){
         const response = await blogsService.getLatestBlogs();
         this.setLatestBlogs(response.data)
-        console.log(response.data)
-        console.log(this.latestBlogs)
     }
 
     async getFeaturedBlogs(){
@@ -87,7 +85,6 @@ class Blogs{
     }
 
     sortBy(type){
-        console.log(this.blogs)
         switch (type)
         {
             case SORT_BY_TITLE:
@@ -96,14 +93,14 @@ class Blogs{
                     this.blogsSortByAlpha = false;
                     this.blogsSortByDate = false;
                     this.blogsSortByView = false;
-                    this.blogsSortTitle = "Sort by Title ↓"
+                    this.blogsSortTitle = "Сортировка по названию ↓"
                 }
                 else {
                     this.setBlogs(sort(this.blogs).by([{asc: blog => blog.title}]))
                     this.blogsSortByAlpha = true;
                     this.blogsSortByDate = false;
                     this.blogsSortByView = false;
-                    this.blogsSortTitle = "Sort by Title ↑"
+                    this.blogsSortTitle = "Сортировка по названию ↑"
                 }
                 break
             case SORT_BY_VIEW:
@@ -112,14 +109,14 @@ class Blogs{
                     this.blogsSortByAlpha = false;
                     this.blogsSortByDate = false;
                     this.blogsSortByView = false;
-                    this.blogsSortTitle = "Sort by View count ↓"
+                    this.blogsSortTitle = "Сортировка по количеству просмотров ↓"
                 }
                 else{
                     this.setBlogs(sort(this.blogs).by([{desc: blog => blog.viewCount}]))
                     this.blogsSortByAlpha = false;
                     this.blogsSortByDate = false;
                     this.blogsSortByView = true;
-                    this.blogsSortTitle = "Sort by View count ↑"
+                    this.blogsSortTitle = "Сортировка по количеству просмотров ↑"
                 }
                 break
             case SORT_BY_DATE:
@@ -128,14 +125,14 @@ class Blogs{
                     this.blogsSortByAlpha = false;
                     this.blogsSortByDate = false;
                     this.blogsSortByView = false;
-                    this.blogsSortTitle = "Sort by date ↓"
+                    this.blogsSortTitle = "Сортировка по дате ↓"
                 }
                 else{
                     this.setBlogs(sort(this.blogs).by([{asc: blog => blog.creationDate}]))
                     this.blogsSortByAlpha = false;
                     this.blogsSortByDate = true;
                     this.blogsSortByView = false;
-                    this.blogsSortTitle = "Sort by date ↑"
+                    this.blogsSortTitle = "Сортировка по дате ↑"
                 }
                 break;
 

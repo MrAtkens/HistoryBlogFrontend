@@ -1,18 +1,21 @@
 const withPlugins = require('next-compose-plugins');
 const withImages = require('next-images');
+const withPWA = require('next-pwa')
 
-const nextSettings = {
-  // exportPathMap: {
-  //   '/': { page: '/index' },
-  //   '/about': { page: '/about' },
-  //   '/blogs': { page: '/blogs' },
-  //   '/contact': { page: '/contact' },
-  //   '/tags/first': { page: '/tags/[slug]', query: { slug: 'tags' } },
-  // }
-};
+const nextSettings = withPWA({
+    //Здесь надо вписывать данные
+    env: {
+        gtag: 'G-4370VENQX5',
+    },
+    //Здесь надо вписывать данные
 
-
-//Основная ошибка в next/link
+    pwa: {
+        dest: 'public',
+        disable: process.env.NODE_ENV === 'development',
+        register: true,
+        skipWaiting: true,
+    },
+});
 
 
 module.exports = withPlugins([withImages, nextSettings]);

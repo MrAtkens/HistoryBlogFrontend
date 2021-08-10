@@ -28,7 +28,7 @@ const Pagination = observer(({
         )}
       </PrevPage>
 
-      <PageNumber>{`Page ${currentPage} Of ${totalPage}`}</PageNumber>
+      <PageNumber>{`Страница ${currentPage} из ${totalPage}`}</PageNumber>
 
       <NextPage>
         {Math.ceil(blogStore.getCountPages/blogStore.countOfBlogsOnPage) !== blogStore.getCurrentPage && (

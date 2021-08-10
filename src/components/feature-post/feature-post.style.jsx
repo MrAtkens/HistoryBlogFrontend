@@ -94,6 +94,7 @@ export const PostTags = styled.div`
 export const ReadMore = styled.div`
 	.category  {
 		font-size: 12px;
+		font-family: Poppins, sans-serif;
 		background-color: #FF2E55;
 		font-weight: ${themeGet('fontWeights.6', '700')};
 		text-transform: uppercase;

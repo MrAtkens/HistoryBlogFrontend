@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react';
 import {IoMdArrowRoundBack} from "react-icons/io";
+import Image from "material-ui-image"
 import Link from "next/link";
 
 import {Goback, Icon, NotFoundContent, NotFoundImage, NotFoundWrapper} from '~/containers/not-found';
@@ -13,10 +14,9 @@ const NotFoundPage = () => {
             <ResetCss/>
             <NotFoundWrapper>
                 <NotFoundContent>
-                    <h1>This Page Was Lost</h1>
+                    <h1>Страница потерялась</h1>
                     <p>
-                        The Page You are looking for isn’t available. Try to search again or
-                        use the Go Back button below.
+                        Страница которую вы хотели посмотреть в данный момент не доступна
                     </p>
                     <Goback>
                         <Link href="/">
@@ -30,7 +30,7 @@ const NotFoundPage = () => {
                     </Goback>
                 </NotFoundContent>
                 <NotFoundImage>
-                    <img src={imageNotFound} alt="author"/>
+                    <Image src={imageNotFound} alt="Страница 404 не найдено"/>
                 </NotFoundImage>
             </NotFoundWrapper>
         </Fragment>

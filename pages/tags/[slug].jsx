@@ -18,7 +18,7 @@ const TagsPage = observer(() => {
     return (
         <>
             <TagPageHeading>
-                <TagName>#{router.query.slug}</TagName>
+                <TagName>{router.query.slug}</TagName>
                 {`A collection of ${blogsTag.length} post`}
             </TagPageHeading>
             <FeaturedPostWrapper>
@@ -34,7 +34,7 @@ const TagsPage = observer(() => {
                                     category={item.category}
                                     image={item.image}
                                     creationDate={item.creationDate}
-                                    url={"/blog/" + item.id}
+                                    id={item.id}
                                     description={item.description}
                                     tags={tags}
                                 />

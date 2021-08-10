@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from "next/link";
+import Image from 'material-ui-image'
 
 import {
   PostDetailsWrapper,
@@ -11,6 +12,7 @@ import {
   PostTags, PostCategory,
 } from './post-details.style';
 import {CategoryItem, Tooltip} from "~/containers/blogs/blogsStyle.style";
+import kebabCase from "kebab-case";
 
 const PostDetails = ({
   title,
@@ -32,15 +34,19 @@ const PostDetails = ({
       <>
         <PostCategory>
           <CategoryItem key={category.id}>
-            <Link to={`/category/${category.name}`}>{category.name}</Link>
-            <Tooltip>{category.description}</Tooltip>
+            <Link href={{
+              pathname: '/category/[slug]',
+              query: {slug: category.name},
+            }}>
+              <a className="category">{category.name}</a>
+            </Link>            <Tooltip>{category.description}</Tooltip>
           </CategoryItem>
         </PostCategory>
         <PostTitle>{title}</PostTitle>
         <PostDate>{date}</PostDate>
       </>
       <PostPreview className="post_preview">
-        <img src={preview} alt={title} />
+        <Image aspectRatio={16/9} src={preview} alt={title} />
       </PostPreview>
 
       <PostDescriptionWrapper className="post_des_wrapper">
@@ -50,10 +56,13 @@ const PostDetails = ({
         />
         {tags == null ? null : (
           <PostTags>
-            {tags.map((tag, index) => (
-              <Link key={index} href={`/tags/${tag.toLowerCase()}/`}>
-                {`#${tag}`}
-              </Link>
+            {tags.map((tag) => (
+                <Link href={{
+                  pathname: '/tags/[slug]',
+                  query: {slug: kebabCase(tag.slice(1))},
+                }}>
+                  {kebabCase(tag)}
+                </Link>
             ))}
           </PostTags>
         )}
