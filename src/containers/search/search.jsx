@@ -70,7 +70,7 @@ const Search = observer(() => {
         />
       </SearchForm>
       <SearchResult>
-        {queryResults.length == 0 && searchQuery !== '' ? (
+        {queryResults.length === 0 && searchQuery !== '' ? (
           <NoResult>No result found</NoResult>
         ) : (
           ''

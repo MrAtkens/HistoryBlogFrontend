@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {observer} from "mobx-react-lite";
 import Link from "next/link";
 import { FaSortAlphaDownAlt, FaSortAlphaUpAlt, FaRegCalendarPlus, FaRegCalendarMinus } from "react-icons/fa";
@@ -14,6 +14,15 @@ import category from '~/stores/categoryStore'
 import { SORT_BY_DATE, SORT_BY_TITLE, SORT_BY_VIEW } from "~/settings/constants";
 
 const Blogs = observer(() => {
+
+    useEffect(() => {
+        blogs.getPageCount()
+        category.getCategories()
+    },[])
+
+    useEffect(() => {
+        blogs.getBlogs()
+    }, [blogs.getCurrentPage])
 
     return (
             <BlogPostsWrapper>

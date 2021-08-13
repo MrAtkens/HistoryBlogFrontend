@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Link from "next/link";
 import Image from 'material-ui-image'
+import kebabCase from "kebab-case";
 
 import {
   PostDetailsWrapper,
@@ -12,7 +13,6 @@ import {
   PostTags, PostCategory,
 } from './post-details.style';
 import {CategoryItem, Tooltip} from "~/containers/blogs/blogsStyle.style";
-import kebabCase from "kebab-case";
 
 const PostDetails = ({
   title,

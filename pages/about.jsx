@@ -3,7 +3,7 @@ import {
     IoLogoFacebook,
     IoLogoTwitter,
     IoLogoInstagram,
-    IoLogoLinkedin,
+    IoLogoLinkedin, IoLogoGithub,
 } from 'react-icons/io';
 import Image from "material-ui-image"
 
@@ -12,24 +12,9 @@ import SocialProfile from '~/components/social-profile/social-profile';
 
 const SocialLinks = [
     {
-        icon: <IoLogoFacebook />,
-        url: 'https://www.facebook.com/redqinc/',
-        tooltip: 'Facebook',
-    },
-    {
-        icon: <IoLogoInstagram />,
-        url: 'https://www.instagram.com/redqinc/',
-        tooltip: 'Instagram',
-    },
-    {
-        icon: <IoLogoTwitter />,
-        url: 'https://twitter.com/redqinc',
-        tooltip: 'Twitter',
-    },
-    {
-        icon: <IoLogoLinkedin />,
-        url: 'https://www.linkedin.com/company/redqinc/',
-        tooltip: 'Linked In',
+        icon: <IoLogoGithub />,
+        url: 'https://github.com/MrAtkens',
+        tooltip: 'Github',
     },
 ];
 
@@ -48,7 +33,9 @@ const AboutPage = () => {
                 <p>
                     Geek'n'History modern blog about history of Kazakhstan and world
                 </p>
-
+                <p>
+                    Внизу указаны соцсети разработчика сайта BazarJokGroup.
+                </p>
                 <SocialProfiles>
                     <SocialProfile items={SocialLinks} />
                 </SocialProfiles>

@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
         {children}
         <Footer>
           Copyright &copy; {new Date().getFullYear()}
-          <a href="https://geeknhistory.kz/">Geek'n'History.</a>
+          <a href="https://geeknhistory.kz/">Geek'n'History</a>
         </Footer>
         <ScrollToTop
           showUnder={300}

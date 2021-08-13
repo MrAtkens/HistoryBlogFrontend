@@ -14,11 +14,11 @@ const SocialProfile = ({
     <SocialProfileWrapper {...props}>
       {items.map((item, index) => (
         <SocialProfileItem key={index}>
-          <a href={item.url} aria-label="social profile">
+          <a href={item.url} aria-label="Профиль социальных сетей">
             {item.icon || 'icon'}
           </a>
           {item.tooltip != null && item.tooltip !== '' ? (
-            <Tooltip>{item.tooltip || 'Social Link'}</Tooltip>
+            <Tooltip>{item.tooltip || 'Ссылка на соцсеть'}</Tooltip>
           ) : (
             ''
           )}
