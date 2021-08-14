@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from "material-ui-image"
+import Image from 'next/image'
 import kebabCase from "kebab-case";
 
 import {
@@ -10,6 +10,7 @@ import {
   InstagramWrapper,
   InstagramPhoto,
 } from './style';
+import Link from "next";
 
 const Sidebar = () => {
 
@@ -27,7 +28,7 @@ const Sidebar = () => {
           aria-label="Get StoryHub"
           target="_blank"
         >
-          <img src={PromotionImage} alt="Get StoryHub" />
+          <Image src={PromotionImage} alt="Get StoryHub" />
         </a>
       </SidebarWidget>
 
@@ -37,7 +38,7 @@ const Sidebar = () => {
         {Tags.map((tag) => (
           <TagItem key={tag.fieldValue}>
             <span>#</span>
-            <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+            <Link href={`/tags/${kebabCase(tag.fieldValue)}/`}>
               {tag.fieldValue} <span>({tag.totalCount})</span>
             </Link>
           </TagItem>
