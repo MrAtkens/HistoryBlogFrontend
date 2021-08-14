@@ -73,7 +73,7 @@ const Navbar = ({
           <MobileMenu items={MenuItems} logo='/static/image/logo.png'/>
         </DrawerProvider>
         <Logo>
-          <Image src='/static/image/logo.png' alt="logo" onClick={redirectToHome} />
+          <Image className="logo" src='/static/image/logo.png' alt="logo" onClick={redirectToHome} />
         </Logo>
         <MenuWrapper>
           <Menu items={MenuItems} />

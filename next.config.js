@@ -7,8 +7,10 @@ const nextSettings = withPWA({
     env: {
         gtag: 'G-4370VENQX5',
     },
+    images: {
+        domains: ['historyblogkazakhstan.s3.ap-northeast-2.amazonaws.com'],
+    },
     //Здесь надо вписывать данные
-
     pwa: {
         dest: 'public',
         disable: process.env.NODE_ENV === 'development',

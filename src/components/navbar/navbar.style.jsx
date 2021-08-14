@@ -35,11 +35,6 @@ export const Logo = styled.div`
 	@media (max-width: 575px) {
 		max-width: 90px;
 	}
-	img {
-		display: block;
-		max-width: 100%;
-		height: auto;
-	}
 `;
 
 export const MenuWrapper = styled.div`

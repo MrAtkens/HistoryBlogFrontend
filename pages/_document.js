@@ -26,13 +26,6 @@ export default class MyDocument extends Document {
                     <meta name="msapplication-TileImage" content="/static/icons/mstile-144x144.png"/>
                     <meta name="theme-color" content="#ffffff"/>
 
-                    <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png"/>
-                    <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png"/>
-                    <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png"/>
-                    <link rel="mask-icon" href="/static/icons/safari-pinned-tab.svg" color="#5bbad5"/>
-                    <link rel='shortcut icon' href='/static/icons/favicon.ico' />
-                    <link rel='manifest' href='/manifest.json' />
-
                     <meta name='twitter:card' content='summary' />
                     <meta name='twitter:url' content='https://geeknhistory.kz' />
                     <meta name='twitter:title' content='GeekNHistory' />
@@ -46,6 +39,23 @@ export default class MyDocument extends Document {
                     <meta property='og:url' content='https://geeknhistory.kz' />
                     <meta property='og:image' content='https://geeknhistory.kz/static/icons/apple-touch-icon.png' />
 
+                    <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png"/>
+                    <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32x32.png"/>
+                    <link rel="icon" type="image/png" sizes="16x16" href="/static/icons/favicon-16x16.png"/>
+                    <link rel="mask-icon" href="/static/icons/safari-pinned-tab.svg" color="#5bbad5"/>
+                    <link rel='shortcut icon' href='/static/icons/favicon.ico' />
+                    <link rel='manifest' href='/manifest.json' />
+                    <link rel="preload" as="font" href="/static/fonts/FiraSans-Regular.ttf" type="font/ttf" crossOrigin="anonymous"/>
+                    <link rel="preload" as="font" href="/static/fonts/FiraSans-Medium.ttf" type="font/ttf" crossOrigin="anonymous"/>
+                    <link rel="preload" as="font" href="/static/fonts/FiraSans-SemiBold.ttf" type="font/ttf" crossOrigin="anonymous"/>
+                    <link rel="preload" as="font" href="/static/fonts/FiraSans-Bold.ttf" type="font/ttf" crossOrigin="anonymous"/>
+                    <link rel="preload" as="font" href="/static/fonts/FiraSans-ExtraBold.ttf" type="font/ttf" crossOrigin="anonymous"/>
+
+                    <link rel="preload" as="font" href="/static/fonts/Poppins-Regular.ttf" type="font/ttf" crossOrigin="anonymous"/>
+                    <link rel="preload" as="font" href="/static/fonts/Poppins-Medium.ttf" type="font/ttf" crossOrigin="anonymous"/>
+                    <link rel="preload" as="font" href="/static/fonts/Poppins-SemiBold.ttf" type="font/ttf" crossOrigin="anonymous"/>
+                    <link rel="preload" as="font" href="/static/fonts/Poppins-Bold.ttf" type="font/ttf" crossOrigin="anonymous"/>
+                    <link rel="preload" as="font" href="/static/fonts/Poppins-ExtraBold.ttf" type="font/ttf" crossOrigin="anonymous"/>
                     <script
                         async
                         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
