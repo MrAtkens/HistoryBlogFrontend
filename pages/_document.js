@@ -1,5 +1,6 @@
 import React from "react";
 import Document, {Html, Head, Main, NextScript} from 'next/document'
+import Script from 'next/script'
 
 import {ServerStyleSheet} from 'styled-components'
 import {GA_TRACKING_ID} from "~/settings/gtag";
@@ -11,7 +12,6 @@ export default class MyDocument extends Document {
             <Html lang="ru">
                 <Head>
                     <meta charSet="utf-8"/>
-                    <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
                     <meta name="theme-color" content="#D10068"/>
                     <meta name='application-name' content="GeekHistory" />
                     <meta name='apple-mobile-web-app-capable' content='yes' />
@@ -45,34 +45,23 @@ export default class MyDocument extends Document {
                     <link rel="mask-icon" href="/static/icons/safari-pinned-tab.svg" color="#5bbad5"/>
                     <link rel='shortcut icon' href='/static/icons/favicon.ico' />
                     <link rel='manifest' href='/manifest.json' />
-                    <link rel="preload" as="font" href="/static/fonts/FiraSans-Regular.ttf" type="font/ttf" crossOrigin="anonymous"/>
-                    <link rel="preload" as="font" href="/static/fonts/FiraSans-Medium.ttf" type="font/ttf" crossOrigin="anonymous"/>
-                    <link rel="preload" as="font" href="/static/fonts/FiraSans-SemiBold.ttf" type="font/ttf" crossOrigin="anonymous"/>
-                    <link rel="preload" as="font" href="/static/fonts/FiraSans-Bold.ttf" type="font/ttf" crossOrigin="anonymous"/>
-                    <link rel="preload" as="font" href="/static/fonts/FiraSans-ExtraBold.ttf" type="font/ttf" crossOrigin="anonymous"/>
 
-                    <link rel="preload" as="font" href="/static/fonts/Poppins-Regular.ttf" type="font/ttf" crossOrigin="anonymous"/>
-                    <link rel="preload" as="font" href="/static/fonts/Poppins-Medium.ttf" type="font/ttf" crossOrigin="anonymous"/>
-                    <link rel="preload" as="font" href="/static/fonts/Poppins-SemiBold.ttf" type="font/ttf" crossOrigin="anonymous"/>
-                    <link rel="preload" as="font" href="/static/fonts/Poppins-Bold.ttf" type="font/ttf" crossOrigin="anonymous"/>
-                    <link rel="preload" as="font" href="/static/fonts/Poppins-ExtraBold.ttf" type="font/ttf" crossOrigin="anonymous"/>
-                    <script
-                        async
+                    <Script
+                        id="google-tag"
+                        strategy="lazyOnload"
                         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
                     />
 
-                    <script
-                        dangerouslySetInnerHTML={{
-                            __html: `
-                            window.dataLayer = window.dataLayer || [];
-                            function gtag(){dataLayer.push(arguments);}
-                            gtag('js', new Date());
-                            gtag('config', '${GA_TRACKING_ID}', {
-                              page_path: window.location.pathname,
-                            });
-                          `,
-                        }}
-                    />
+                    <Script strategy="lazyOnload">
+                        {`  
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', '${GA_TRACKING_ID}', {
+                           page_path: window.location.pathname,
+                        });
+                        `}
+                    </Script>
                 </Head>
                 <body>
                 <Main/>
