@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Link from "next/link";
-import Image from 'material-ui-image'
+import Image from 'next/image'
 import kebabCase from "kebab-case";
 
 import {
@@ -46,7 +46,7 @@ const PostDetails = ({
         <PostDate>{date}</PostDate>
       </>
       <PostPreview className="post_preview">
-        <Image aspectRatio={16/9} src={preview} alt={title} />
+        <Image src={preview} alt={title} />
       </PostPreview>
 
       <PostDescriptionWrapper className="post_des_wrapper">

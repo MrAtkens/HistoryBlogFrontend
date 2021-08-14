@@ -10,7 +10,6 @@ import {
 import {
   IoLogoVk,
   IoLogoInstagram,
-  IoLogoGithub,
 } from 'react-icons/io';
 
 const SocialLinks = [

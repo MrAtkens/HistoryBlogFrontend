@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Image from "next/image"
 import Link from "next/link";
 import kebabCase from "kebab-case";
 
@@ -38,7 +39,7 @@ const PostList = ({
 			}}>
 				{image == null ? null : (
 					<PostPreview className='post_preview'>
-						<img
+						<Image
 							src={image.webImagePath}
 							alt={image.alt}
 						/>

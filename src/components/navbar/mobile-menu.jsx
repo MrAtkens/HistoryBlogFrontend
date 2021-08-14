@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { FiX } from 'react-icons/fi';
+import Image from "next/image";
 import Link from "next/link";
 
 import Drawer from '../drawer/drawer';
@@ -48,7 +49,7 @@ const MobileMenu = ({
           <DrawerHead>
             <DrawerLogo>
               <Link href="/">
-                <img src={logo} alt="logo" />
+                <Image src={logo} alt="logo" />
               </Link>
             </DrawerLogo>
             <DrawerClose onClick={toggleDrawer}>

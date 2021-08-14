@@ -1,11 +1,8 @@
 import * as React from 'react';
 import {
-    IoLogoFacebook,
-    IoLogoTwitter,
-    IoLogoInstagram,
-    IoLogoLinkedin, IoLogoGithub,
+   IoLogoGithub,
 } from 'react-icons/io';
-import Image from "material-ui-image"
+import Image from 'next/image'
 
 import { AboutWrapper, AboutImage, AboutDetails, SocialProfiles, Intro } from '~/containers/about'
 import SocialProfile from '~/components/social-profile/social-profile';
@@ -25,7 +22,7 @@ const AboutPage = () => {
         <AboutWrapper>
             <Intro />
             <AboutImage>
-                <Image aspectRatio={16/9} src='/static/image/about.jpg' alt="О нас" />
+                <Image src='/static/image/about.jpg' alt="О нас" />
             </AboutImage>
 
             <AboutDetails>

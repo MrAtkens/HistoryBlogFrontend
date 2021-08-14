@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Image from 'material-ui-image'
+import Image from 'next/image'
 import Link from "next/link";
 
 import {
@@ -41,9 +41,9 @@ const PostCard = ({
                         pathname: '/blog/[slug]',
                         query: {slug: id},
                     }}>                        {imageType === 'fluid' ? (
-                        <Image aspectRatio={17 / 11} src={image} alt="post preview"/>
+                        <Image src={image} alt="post preview"/>
                     ) : (
-                        <Image aspectRatio={17 / 11} src={image} alt="post preview"/>
+                        <Image src={image} alt="post preview"/>
                     )}
                     </Link>
                 </PostPreview>

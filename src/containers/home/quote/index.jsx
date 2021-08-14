@@ -1,8 +1,9 @@
 import React from 'react';
 import {observer} from "mobx-react-lite";
 import { Carousel } from 'react-responsive-carousel';
+import Image from 'next/image'
+
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Image from "material-ui-image";
 
 import quoteStore from 'stores/quotesStore'
 
@@ -24,7 +25,7 @@ const Quotes = observer(({posts}) => {
           return (
               <IntroWrapper key={quote.id}>
                 <IntroImage>
-                  <img src={quote.image.webImagePath} alt={quote.image.alt}/>
+                  <Image src={quote.image.webImagePath} alt={quote.image.alt}/>
                 </IntroImage>
                 <IntroInfo>
                   <IntroTitle>
@@ -44,7 +45,7 @@ const Quotes = observer(({posts}) => {
 export async function getStaticProps(context) {
   const res = await fetch(`https://reqres.in/api/users?page=2`)
   const posts = await res.json()
-
+  console.log(res)
   if (!posts) {
     return {
       notFound: true,
