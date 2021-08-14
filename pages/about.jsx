@@ -31,7 +31,7 @@ const AboutPage = () => {
             <AboutWrapper>
                 <Intro />
                 <AboutImage>
-                    <Image src='/static/image/about.jpg' alt="О нас" />
+                    <Image layout='fill' src='/static/image/about.jpg' alt="О нас" />
                 </AboutImage>
 
                 <AboutDetails>
