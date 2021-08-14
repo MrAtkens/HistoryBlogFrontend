@@ -4,9 +4,9 @@ import {ThemeProvider} from 'styled-components'
 import { YMInitializer } from 'react-yandex-metrika';
 
 import Layout from "~/components/layout";
-import {theme} from '~/theme';
+import {theme} from '~/../public/theme';
 import '~/styles/globals.css'
-import '~/theme/global.css'
+import '~/../public/theme/global.css'
 
 export default function App({Component, pageProps}) {
     return (

@@ -46,69 +46,69 @@ body {
 
 @font-face {
   font-family: 'Poppins';
-  src: local('Poppins'), url(public/static/fonts/Poppins-Regular.ttf) format('opentype');
+  src: local('Poppins'), url(../static/fonts/Poppins-Regular.ttf) format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Poppins';
   font-weight: 500;
-  src: local('Poppins'), url(public/static/fonts/Poppins-Medium.ttf) format('opentype');
+  src: local('Poppins'), url(../static/fonts/Poppins-Medium.ttf) format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Poppins';
   font-weight: 600;
-  src: local('Poppins'), url(public/static/fonts/Poppins-SemiBold.ttf) format('opentype');
+  src: local('Poppins'), url(../static/fonts/Poppins-SemiBold.ttf) format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Poppins';
   font-weight: 700;
-  src: local('Poppins'), url(public/static/fonts/Poppins-Bold.ttf) format('opentype');
+  src: local('Poppins'), url(../static/fonts/Poppins-Bold.ttf) format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Poppins';
   font-weight: 800;
-  src: local('Poppins'), url(public/static/fonts/Poppins-ExtraBold.ttf) format('opentype');
+  src: local('Poppins'), url(../static/fonts/Poppins-ExtraBold.ttf) format('opentype');
   font-display: swap;
 }
 
 
 @font-face {
   font-family: 'Fira Sans';
-  src: local('Fira Sans'), url(public/static/fonts/FiraSans-Regular.ttf) format('opentype');
+  src: local('Fira Sans'), url(../static/fonts/FiraSans-Regular.ttf) format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Fira Sans';
   font-weight: 500;
-  src: local('Fira Sans'), url(public/static/fonts/FiraSans-Medium.ttf) format('opentype');
+  src: local('Fira Sans'), url(../static/fonts/FiraSans-Medium.ttf) format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Fira Sans';
   font-weight: 600;
-  src: local('Fira Sans'), url(public/static/fonts/FiraSans-SemiBold.ttf) format('opentype');
+  src: local('Fira Sans'), url(../static/fonts/FiraSans-SemiBold.ttf) format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Fira Sans';
   font-weight: 700;
-  src: local('Fira Sans'), url(public/static/fonts/FiraSans-Bold.ttf) format('opentype');
+  src: local('Fira Sans'), url(../static/fonts/FiraSans-Bold.ttf) format('opentype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Fira Sans';
   font-weight: 800;
-  src: local('Fira Sans'), url(public/static/fonts/FiraSans-ExtraBold.ttf) format('opentype');
+  src: local('Fira Sans'), url(../static/fonts/FiraSans-ExtraBold.ttf) format('opentype');
   font-display: swap;
 }
