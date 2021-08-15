@@ -1,13 +1,13 @@
-import * as React from 'react';
+import React, {Fragment} from "react";
 import {
    IoLogoGithub,
 } from 'react-icons/io';
+import Head from "next/head";
 import Image from 'next/image'
 
 import { AboutWrapper, AboutImage, AboutDetails, SocialProfiles, Intro } from '~/containers/about'
 import SocialProfile from '~/components/social-profile/social-profile';
-import Head from "next/head";
-import {Fragment} from "react";
+import useWindowDimensions from "~/settings/windowDimensionHook";
 
 const SocialLinks = [
     {
@@ -19,6 +19,7 @@ const SocialLinks = [
 
 
 const AboutPage = () => {
+    const { height, width } = useWindowDimensions();
 
     return (
         <Fragment>
@@ -31,7 +32,7 @@ const AboutPage = () => {
             <AboutWrapper>
                 <Intro />
                 <AboutImage>
-                    <Image width="80%" height="50%" src='/static/image/about.jpg' alt="О нас" />
+                    <Image layout="responsive" width={width/3.5} height={height/2.5} src='/static/image/about.jpg' alt="О нас" />
                 </AboutImage>
 
                 <AboutDetails>

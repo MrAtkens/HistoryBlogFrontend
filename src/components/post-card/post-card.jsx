@@ -41,9 +41,9 @@ const PostCard = ({
                         pathname: '/blog/[slug]',
                         query: {slug: id},
                     }}>                        {imageType === 'fluid' ? (
-                        <Image width='33%' height={600} src={image} alt="post preview"/>
+                        <Image layout="responsive" width='33%' height={600} src={image} alt="post preview"/>
                     ) : (
-                        <Image width='33%' height={600} src={image} alt="post preview"/>
+                        <Image layout="responsive" width='33%' height={600} src={image} alt="post preview"/>
                     )}
                     </Link>
                 </PostPreview>

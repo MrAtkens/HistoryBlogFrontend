@@ -45,7 +45,7 @@ const FeaturedCard = ({
                         pathname: '/blog/[slug]',
                         query: {slug: id},
                     }}>
-                        <Image width='33%' height={600} src={image.webImagePath} alt={image.alt}/>
+                        <Image objectFit="cover" layout="responsive" width='33%' height={600} src={image.webImagePath} alt={image.alt}/>
                     </Link>
                 </PostPreview>
             )}
