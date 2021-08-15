@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 import { AboutWrapper, AboutImage, AboutDetails, SocialProfiles, Intro } from '~/containers/about'
 import SocialProfile from '~/components/social-profile/social-profile';
-import useWindowDimensions from "~/settings/windowDimensionHook";
+import useWindowSize from "~/settings/windowDimensionHook";
 
 const SocialLinks = [
     {
@@ -19,7 +19,7 @@ const SocialLinks = [
 
 
 const AboutPage = () => {
-    const { height, width } = useWindowDimensions();
+    const size = useWindowSize();
 
     return (
         <Fragment>
@@ -32,7 +32,7 @@ const AboutPage = () => {
             <AboutWrapper>
                 <Intro />
                 <AboutImage>
-                    <Image layout="responsive" width={width/3.5} height={height/2.5} src='/static/image/about.jpg' alt="О нас" />
+                    <Image layout="responsive" width={size.width/3.5} height={size.height/2.5} src='/static/image/about.jpg' alt="О нас" />
                 </AboutImage>
 
                 <AboutDetails>
