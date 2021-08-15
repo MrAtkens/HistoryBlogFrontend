@@ -40,6 +40,7 @@ const PostList = ({
 				{image == null ? null : (
 					<PostPreview className='post_preview'>
 						<Image
+							width={150} height={150}
 							src={image.webImagePath}
 							alt={image.alt}
 						/>
