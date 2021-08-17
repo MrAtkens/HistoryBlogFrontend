@@ -3,10 +3,11 @@ import {ToastContainer} from "react-toastify";
 import {ThemeProvider} from 'styled-components'
 import { YMInitializer } from 'react-yandex-metrika';
 
-import Layout from "~/components/layout";
-import {theme} from '~/../public/theme';
+import {theme} from '../public/theme';
+import '../public/theme/global.css'
 import '~/styles/globals.css'
-import '~/../public/theme/global.css'
+
+import Layout from "~/components/layout";
 
 export default function App({Component, pageProps}) {
     return (
