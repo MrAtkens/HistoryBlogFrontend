@@ -3,7 +3,7 @@ import {
    IoLogoGithub,
 } from 'react-icons/io';
 import Head from "next/head";
-import Image from 'next/image'
+import Image from 'material-ui-image'
 
 import { AboutWrapper, AboutImage, AboutDetails, SocialProfiles, Intro } from '~/containers/about'
 import SocialProfile from '~/components/social-profile/social-profile';
@@ -32,7 +32,7 @@ const AboutPage = () => {
             <AboutWrapper>
                 <Intro />
                 <AboutImage>
-                    <Image layout="responsive" width={size.width/3.5} height={size.height/2.5} src='/static/image/about.jpg' alt="О нас" />
+                    <Image aspectRatio={16/9} src='/static/image/about.jpg' alt="О нас" />
                 </AboutImage>
 
                 <AboutDetails>

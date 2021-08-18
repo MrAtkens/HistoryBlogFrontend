@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Image from 'next/image'
 import Link from "next/link";
+
+import Image from 'material-ui-image'
 
 import {
     PostCardWrapper,
@@ -41,9 +42,9 @@ const PostCard = ({
                         pathname: '/blog/[slug]',
                         query: {slug: id},
                     }}>                        {imageType === 'fluid' ? (
-                        <Image layout="responsive" width='33%' height={600} src={image} alt="post preview"/>
+                        <Image aspectRatio={17 / 11} src={image} alt={title}/>
                     ) : (
-                        <Image layout="responsive" width='33%' height={600} src={image} alt="post preview"/>
+                        <Image aspectRatio={17 / 11} src={image} alt={title}/>
                     )}
                     </Link>
                 </PostPreview>

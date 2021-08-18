@@ -1,7 +1,6 @@
 import React from "react";
 import {ToastContainer} from "react-toastify";
 import {ThemeProvider} from 'styled-components'
-import { YMInitializer } from 'react-yandex-metrika';
 
 import {theme} from '../public/theme';
 import '../public/theme/global.css'
@@ -25,7 +24,6 @@ export default function App({Component, pageProps}) {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover/>
-            <YMInitializer accounts={[83860999]} options={{webvisor: true}}/>
         </ThemeProvider>
     )
 }

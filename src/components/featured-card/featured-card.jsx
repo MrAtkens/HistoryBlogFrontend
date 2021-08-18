@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Link from 'next/link'
-import Image from 'next/image'
+import Image from 'material-ui-image'
 
 import {
     FeaturedCardWrapper,
@@ -45,7 +45,7 @@ const FeaturedCard = ({
                         pathname: '/blog/[slug]',
                         query: {slug: id},
                     }}>
-                        <Image objectFit="cover" layout="responsive" width='33%' height={600} src={image.webImagePath} alt={image.alt}/>
+                        <Image aspectRatio={4 / 5} src={image.webImagePath} alt={image.alt}/>
                     </Link>
                 </PostPreview>
             )}

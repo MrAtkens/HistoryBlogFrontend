@@ -1,4 +1,5 @@
 const withPlugins = require('next-compose-plugins');
+//const withImages = require('next-images');
 const withPWA = require('next-pwa')
 
 const nextSettings = withPWA({
@@ -8,10 +9,6 @@ const nextSettings = withPWA({
         gtag: 'G-4370VENQX5',
     },
     //Здесь надо вписывать данные
-    images: {
-        domains: ['https://historyblogkazakhstan.s3.ap-northeast-2.amazonaws.com'],
-        minimumCacheTTL: 60,
-    },
     pwa: {
         dest: 'public',
         disable: process.env.NODE_ENV === 'development',
@@ -20,5 +17,7 @@ const nextSettings = withPWA({
     },
 });
 
+
+//module.exports = withPlugins([withImages, nextSettings]);
 
 module.exports = withPlugins([nextSettings]);

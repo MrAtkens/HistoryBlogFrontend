@@ -39,7 +39,7 @@ const BlogPostTemplate = observer(() => {
     const router = useRouter()
     useEffect(() => {
         blogStore.getBlogById(router.query.slug)
-    },[router.query.slug])
+    }, [router.query.slug])
     const blog = blogStore.getBlog
 
     useEffect(() => {
@@ -48,9 +48,9 @@ const BlogPostTemplate = observer(() => {
 
     return (
         <>
-            {blogStore.blogLoading === true ? (
-                <>
-                    <BlogPostDetailsWrapper>
+            <BlogPostDetailsWrapper>
+                {blogStore.blogLoading === true ? (
+                    <>
                         <PostDetails
                             category={blog.category}
                             title={blog.title}
@@ -72,11 +72,12 @@ const BlogPostTemplate = observer(() => {
                                 </PostTags>
                             )}
                             <PostShare>
-                                <span>Share This:</span>
+                                <span>Поделиться:</span>
                                 <FacebookShareButton url={"/"} quote={blog.title}>
-                                    <IoLogoFacebook />
+                                    <IoLogoFacebook/>
                                 </FacebookShareButton>
-                                <VKShareButton url={location.pathname} title={blog.title} image={blog.image.webImagePath}>
+                                <VKShareButton url={location.pathname} title={blog.title}
+                                               image={blog.image.webImagePath}>
                                     <IoLogoVk/>
                                 </VKShareButton>
                                 <InstapaperShareButton url={location.pathname} title={blog.title}>
@@ -92,29 +93,29 @@ const BlogPostTemplate = observer(() => {
                                     title: blog.title,
                                 }} shortname={"http-geeknhistory-kz"}/>
                         </BlogPostComment>
-                    </BlogPostDetailsWrapper>
-                    {blogStore.getRelatedBlogsTable.length !== 0 && (
-                        <RelatedPostWrapper>
-                            <RelatedPostTitle>Related Posts</RelatedPostTitle>
-                            <RelatedPostItems>
-                                {blogStore.getRelatedBlogsTable.map(blog => {
-                                    const tags = blog.tags.split(' ');
-                                    tags.pop()
-                                    return(
-                                        <RelatedPostItem key={blog.id}>
-                                            <PostCard
-                                                title={blog.title}
-                                                id={blog.id}
-                                                image={blog.image.webImagePath}
-                                                tags={tags}
-                                            />
-                                        </RelatedPostItem>
-                                    )
-                                })}
-                            </RelatedPostItems>
-                        </RelatedPostWrapper>)}
-                </>
-            ) : (<Skeleton className="blog-detail-skeleton" count={1} width={1170} height={670}/>)}
+                    </>
+                ) : (<Skeleton className="blog-details-skeleton" count={1}/>)}
+            </BlogPostDetailsWrapper>
+            {blogStore.getRelatedBlogsTable.length !== 0 && (
+                <RelatedPostWrapper>
+                    <RelatedPostTitle>Похожие статьи</RelatedPostTitle>
+                    <RelatedPostItems>
+                        {blogStore.getRelatedBlogsTable.map(blog => {
+                            const tags = blog.tags.split(' ');
+                            tags.pop()
+                            return (
+                                <RelatedPostItem key={blog.id}>
+                                    <PostCard
+                                        title={blog.title}
+                                        id={blog.id}
+                                        image={blog.image.webImagePath}
+                                        tags={tags}
+                                    />
+                                </RelatedPostItem>
+                            )
+                        })}
+                    </RelatedPostItems>
+                </RelatedPostWrapper>)}
         </>
     );
 });

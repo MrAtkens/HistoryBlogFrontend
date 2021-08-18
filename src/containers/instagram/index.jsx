@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'next/image'
+import Image from "material-ui-image"
 import kebabCase from "kebab-case";
 
 import {

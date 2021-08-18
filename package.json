@@ -7,6 +7,8 @@
     "prod": "next build && next export"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "@styled-system/theme-get": "^5.1.2",
     "axios": "^0.21.1",
     "disqus-react": "^1.1.1",
@@ -14,6 +16,7 @@
     "formik": "^2.2.9",
     "js-search": "^2.0.0",
     "kebab-case": "^1.0.1",
+    "material-ui-image": "^3.3.2",
     "mobx": "^6.0.4",
     "mobx-react-lite": "^3.1.6",
     "next": "^11.0.1",
@@ -32,7 +35,6 @@
     "react-share": "^4.4.0",
     "react-stickynode": "^3.1.0",
     "react-toastify": "^7.0.3",
-    "react-yandex-metrika": "^2.6.0",
     "styled-components": "^5.2.3",
     "yup": "^0.32.9"
   },
