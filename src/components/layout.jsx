@@ -7,7 +7,7 @@ import Navbar from './navbar/navbar';
 import Footer from './footer/footer';
 import ScrollUpButton from './scroll-up-button/scroll-up-button';
 import ResetCss from './reset-css';
-import { theme } from '~/theme';
+import { theme } from '../../public/theme';
 
 const Layout = ({ children }) => {
   return (
@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
         {children}
         <Footer>
           Copyright &copy; {new Date().getFullYear()}
-          <a href="https://geeknhistory.kz/">Geek'n'History.</a>
+          <a href="https://geeknhistory.kz/">Geek'n'History</a>
         </Footer>
         <ScrollToTop
           showUnder={300}

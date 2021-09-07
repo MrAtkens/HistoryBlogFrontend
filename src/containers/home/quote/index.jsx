@@ -1,6 +1,7 @@
 import React from 'react';
 import {observer} from "mobx-react-lite";
 import { Carousel } from 'react-responsive-carousel';
+
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import quoteStore from 'stores/quotesStore'
@@ -9,16 +10,15 @@ import {
   IntroWrapper,
   IntroImage,
   IntroTitle,
-  Desciption,
+  Description,
   IntroInfo,
   Date
 } from './style';
 
 const Quotes = observer(() => {
-
   return (
-      <Carousel showArrows={true} showStatus={false} emulateTouch={true}>
-        {quoteStore.getQuotesTable.map(quote => {
+      <Carousel showArrows={true} showStatus={false} emulateTouch={true} showThumbs={false}>
+        {quoteStore.quotes.map(quote => {
           return (
               <IntroWrapper key={quote.id}>
                 <IntroImage>
@@ -28,13 +28,14 @@ const Quotes = observer(() => {
                   <IntroTitle>
                     {quote.fullName}
                   </IntroTitle>
-                  <Desciption>{quote.description}</Desciption>
+                  <Description>{quote.description}</Description>
                   <Date>{quote.date}</Date>
                 </IntroInfo>
               </IntroWrapper>
           )}
         )}
       </Carousel>
+
   )
 });
 

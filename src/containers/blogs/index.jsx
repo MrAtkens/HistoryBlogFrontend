@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {observer} from "mobx-react-lite";
-import { FaSortAlphaDownAlt, FaSortAlphaUpAlt, FaRegCalendarPlus, FaRegCalendarMinus } from "react-icons/fa";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
-import Link from "next";
+import Link from "next/link";
+import { FaSortAlphaDownAlt, FaSortAlphaUpAlt, FaRegCalendarPlus, FaRegCalendarMinus, FaEye, FaEyeSlash } from "react-icons/fa";
 
+import { TagPageHeading, BlogPostsWrapper, Button, SortButtons, SortName, PostCategory, CategoryItem, Tooltip } from "./blogsStyle.style";
 import {FeaturedPostCol, FeaturedPostRow} from "~/containers/home/posts/style";
-import { TagName, TagPageHeading, BlogPostsWrapper, Button, SortButtons, SortName, PostCategory, CategoryItem, Tooltip } from "./blogsStyle.style";
 import FeaturedCard from "~/components/featured-card/featured-card"
 import Pagination from "~/components/pagination/pagination";
 
@@ -15,6 +14,15 @@ import { SORT_BY_DATE, SORT_BY_TITLE, SORT_BY_VIEW } from "~/settings/constants"
 
 const Blogs = observer(() => {
 
+    useEffect(() => {
+        blogs.getPageCount()
+        category.getCategories()
+    },[])
+
+    useEffect(() => {
+        blogs.getBlogs()
+    }, [blogs.getCurrentPage])
+
     return (
             <BlogPostsWrapper>
                 <TagPageHeading>
@@ -22,7 +30,10 @@ const Blogs = observer(() => {
                         {category.getCategoriesTable.map(category => {
                            return (
                                <CategoryItem key={category.id}>
-                                   <Link href={`/category/${category.name}`}>{category.name}</Link>
+                                   <Link href={{
+                                       pathname: '/category/[slug]',
+                                       query: {slug: category.name},
+                                   }}>{category.name}</Link>
                                    <Tooltip>{category.description}</Tooltip>
                                </CategoryItem>
                            )
@@ -42,7 +53,7 @@ const Blogs = observer(() => {
                         </Button>
                         <Button>
                             <a onClick={() => blogs.sortBy(SORT_BY_VIEW)} aria-label="Sort by view count">
-                                {blogs.blogsSortByView === true ? (<AiFillEye />) : (<AiFillEyeInvisible/>)}
+                                {blogs.blogsSortByView === true ? (<FaEye />) : (<FaEyeSlash/>)}
                             </a>
                         </Button>
                     </SortButtons>
@@ -59,7 +70,7 @@ const Blogs = observer(() => {
                                     category={item.category}
                                     image={item.image}
                                     creationDate={item.creationDate}
-                                    url={"/blog/" + item.id}
+                                    id={item.id}
                                     description={item.description}
                                     tags={tags}
                                 />

@@ -74,7 +74,7 @@ export const PostPreview = styled.div`
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   img {
     border-radius: 3px;
-    object-fit: cover !important;
+    object-fit: fill !important;
   }
   a {
     display: block;
@@ -126,6 +126,7 @@ export const ReadMore = styled.div`
 	.category  {
 		font-size: 12px;
 		background-color: #FF2E55;
+		font-family: Poppins, sans-serif;
 		font-weight: ${themeGet('fontWeights.6', '700')};
 		text-transform: uppercase;
 		color: ${themeGet('white', '#FFFFFF')};
@@ -182,6 +183,8 @@ export const PostTags = styled.div`
   a {
     display: block;
     margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 12pt;
     font-weight: 600;
     color: ${themeGet('primary', '#D10068')};

@@ -82,7 +82,7 @@ const Navbar = ({
           aria-label="search"
           onClick={toggleHandle}
         >
-          <IoIosSearch size="23px" />
+          <IoIosSearch size="24px" />
         </NavSearchButton>
       </NavbarWrapper>
 

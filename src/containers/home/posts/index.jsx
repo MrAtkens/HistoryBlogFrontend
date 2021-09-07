@@ -20,11 +20,11 @@ const Posts = observer(() => {
                   const tags = blog.tags.split(' ');
                   tags.pop()
                   return (
-                      <FeaturedPostCol key={title}>
+                      <FeaturedPostCol key={blog.id}>
                           <FeaturedCard
                               title={title}
                               image={blog.image}
-                              url={"/blog/"+blog.id}
+                              id={blog.id}
                               creationDate={blog.creationDate}
                               category={blog.category}
                               tags={tags}

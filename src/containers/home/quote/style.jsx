@@ -26,8 +26,6 @@ export const IntroWrapper = styled.div`
 `;
 
 export const IntroImage = styled.div`
-  width: 270px;
-  height: 270px;
   padding: 30px;
   border-radius: 50%;
   margin-left: auto;
@@ -55,6 +53,7 @@ export const IntroImage = styled.div`
     height: auto;
     display: block;
     border-radius: 50%;
+    object-fit: cover;
   }
 
   > div {
@@ -78,7 +77,7 @@ export const IntroTitle = styled.h1`
   }
 `;
 
-export const Desciption = styled.p`
+export const Description = styled.p`
   color: ${themeGet('colors.textColor', '#292929')};
   font-size: ${themeGet('fontSizes.3', '15')}pt;
   line-height: ${themeGet('lineHeights.text', '2')};

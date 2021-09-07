@@ -1,59 +1,52 @@
-import * as React from 'react';
+import React, {Fragment} from "react";
 import {
-    IoLogoFacebook,
-    IoLogoTwitter,
-    IoLogoInstagram,
-    IoLogoLinkedin,
+   IoLogoGithub,
 } from 'react-icons/io';
+import Head from "next/head";
 
-import { AboutWrapper, AboutImage, AboutDetails, SocialProfiles, Intro } from '~/containers/about'
+import { AboutWrapper, AboutDetails, SocialProfiles, Intro } from '~/containers/about'
 import SocialProfile from '~/components/social-profile/social-profile';
+import styled from "styled-components";
 
 const SocialLinks = [
     {
-        icon: <IoLogoFacebook />,
-        url: 'https://www.facebook.com/redqinc/',
-        tooltip: 'Facebook',
-    },
-    {
-        icon: <IoLogoInstagram />,
-        url: 'https://www.instagram.com/redqinc/',
-        tooltip: 'Instagram',
-    },
-    {
-        icon: <IoLogoTwitter />,
-        url: 'https://twitter.com/redqinc',
-        tooltip: 'Twitter',
-    },
-    {
-        icon: <IoLogoLinkedin />,
-        url: 'https://www.linkedin.com/company/redqinc/',
-        tooltip: 'Linked In',
+        icon: <IoLogoGithub size={40} />,
+        url: 'https://github.com/MrAtkens',
+        tooltip: 'Ссылка на Github разработчика',
     },
 ];
 
+const AboutImage = styled.img`
+  display: flex;
+  align-items: center;
+  width: 50%
+  height: 20%
+`;
 
 const AboutPage = () => {
-
     return (
-        <AboutWrapper>
-            <Intro />
+        <Fragment>
+            <Head>
+                <title>О нас | Geek'n'History</title>
+                <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, maximum-scale=3, viewport-fit=cover' />
+                <meta name="keywords" content="Казахстан история политика блог статьи интересные культура читать комментировать смотреть газета книга о нас Казахстана геополитека политика искуство язык казахский" />
+                <meta name="description" content="Интересные и увлекательные статьи о историй Казахстана, и не только Казахстана." />
+            </Head>
+            <AboutWrapper>
+                <Intro />
+                {/*<AboutImageWrapper>*/}
+                {/*    <AboutImage src='/static/image/about.jpg' alt="О нас" />*/}
+                {/*</AboutImageWrapper>*/}
 
-            <AboutImage>
-                <img src='/static/image/about.jpg' alt="author" />
-            </AboutImage>
-
-            <AboutDetails>
-                <h2>Hey there, what’s up?</h2>
-                <p>
-                    Geek'n'History modern blog about history of Kazakhstan and world
-                </p>
-
-                <SocialProfiles>
-                    <SocialProfile items={SocialLinks} />
-                </SocialProfiles>
-            </AboutDetails>
-        </AboutWrapper>
+                <AboutDetails>
+                    <h2>В чём же смысл? Да в том, чтобы хоть немного развить интерес к изучению истории если не всемирной, то уж нашего общего дома, Казахстана. Мы не светоч науки, что правда, но нам хотелось бы внести свой вклад в популяризацию истории. Наша мотивация - это историческая грамотность общества и любовь к истории. Наши амбиции - это вы, дорогие читатели.</h2>
+                    <p>Внизу указан профиль разработчика сайта</p>
+                    <SocialProfiles>
+                        <SocialProfile items={SocialLinks} />
+                    </SocialProfiles>
+                </AboutDetails>
+            </AboutWrapper>
+        </Fragment>
     );
 };
 

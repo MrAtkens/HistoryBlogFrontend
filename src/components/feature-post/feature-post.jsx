@@ -1,4 +1,7 @@
 import * as React from 'react';
+import Link from "next/link";
+import kebabCase from "kebab-case"
+
 import {
   FeaturedPostWrapper,
   Excerpt,
@@ -8,11 +11,11 @@ import {
   PostMeta,
   PostTags,
 } from './feature-post.style';
-import Link from "next/link";
+
 
 const FeaturedPost = ({
   title,
-  url, description, creationDate,
+  id, description, creationDate,
   tags, category,
   className,
   placeholderBG,
@@ -33,14 +36,23 @@ const FeaturedPost = ({
           {tags == null ? null : (
               <PostTags className="post_tags">
                 {tags.slice(0, 2).map((tag) => (
-                    <a href={`/tags/${tag.toLowerCase()}/`}
-                    >#{tag.toLowerCase()}</a>
+                    <Link href={{
+                      pathname: '/tags/[slug]',
+                      query: {slug: kebabCase(tag.slice(1))},
+                    }}>
+                      {kebabCase(tag)}
+                    </Link>
                 ))}
               </PostTags>
           )}
         </PostMeta>
         <PostTitle className="post_title">
-          <a href={url}>{title}</a>
+          <Link href={{
+            pathname: '/blog/[slug]',
+            query: {slug: id},
+          }}>
+            {title}
+          </Link>
         </PostTitle>
         <>
           {' '}
@@ -54,10 +66,13 @@ const FeaturedPost = ({
           )}
         </>
         <ReadMore className="read_more">
-          <a href={`/category/${category.name}`}>
+          <Link href={{
+            pathname: '/category/[slug]',
+            query: {slug: category.name},
+          }}>
             <a className="category">{category.name}</a>
-          </a>
-          <a className="date">{creationDate}</a>
+          </Link>
+          <p className="date">{creationDate}</p>
         </ReadMore>
       </PostDetails>
     </FeaturedPostWrapper>

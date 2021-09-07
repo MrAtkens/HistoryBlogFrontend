@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { FiX } from 'react-icons/fi';
+import { IoIosClose } from 'react-icons/io';
 import Link from "next/link";
 
 import Drawer from '../drawer/drawer';
@@ -52,7 +52,7 @@ const MobileMenu = ({
               </Link>
             </DrawerLogo>
             <DrawerClose onClick={toggleDrawer}>
-              <FiX />
+              <IoIosClose />
             </DrawerClose>
           </DrawerHead>
           <Menu items={items} className="mobile-menu" />

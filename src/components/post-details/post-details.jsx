@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Link from "next/link";
+import kebabCase from "kebab-case";
 
 import {
   PostDetailsWrapper,
@@ -7,17 +8,20 @@ import {
   PostDate,
   PostPreview,
   PostDescriptionWrapper,
-  PostDescription,
+  PostDescription, PostAuthor,
   PostTags, PostCategory,
 } from './post-details.style';
 import {CategoryItem, Tooltip} from "~/containers/blogs/blogsStyle.style";
+import styled from "styled-components";
+
+
 
 const PostDetails = ({
   title,
   date,
   preview,
   description, category,
-  tags,
+  tags, authorName,
   className,
   ...props
 }) => {
@@ -32,12 +36,17 @@ const PostDetails = ({
       <>
         <PostCategory>
           <CategoryItem key={category.id}>
-            <Link to={`/category/${category.name}`}>{category.name}</Link>
-            <Tooltip>{category.description}</Tooltip>
+            <Link href={{
+              pathname: '/category/[slug]',
+              query: {slug: category.name},
+            }}>
+              <a className="category">{category.name}</a>
+            </Link>            <Tooltip>{category.description}</Tooltip>
           </CategoryItem>
         </PostCategory>
         <PostTitle>{title}</PostTitle>
         <PostDate>{date}</PostDate>
+        <PostAuthor>Автор: <span style={{fontWeight: 700}}>{authorName}</span></PostAuthor>
       </>
       <PostPreview className="post_preview">
         <img src={preview} alt={title} />
@@ -50,10 +59,13 @@ const PostDetails = ({
         />
         {tags == null ? null : (
           <PostTags>
-            {tags.map((tag, index) => (
-              <Link key={index} href={`/tags/${tag.toLowerCase()}/`}>
-                {`#${tag}`}
-              </Link>
+            {tags.map((tag) => (
+                <Link href={{
+                  pathname: '/tags/[slug]',
+                  query: {slug: kebabCase(tag.slice(1))},
+                }}>
+                  {kebabCase(tag)}
+                </Link>
             ))}
           </PostTags>
         )}

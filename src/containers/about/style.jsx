@@ -12,7 +12,7 @@ export const AboutWrapper = styled.div`
   }
 `;
 
-export const AboutImage = styled.div`
+export const AboutImageWrapper = styled.div`
   margin-bottom: 90px;
   @media (max-width: 990px) {
     margin-bottom: 60px;

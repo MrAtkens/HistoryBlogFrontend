@@ -145,30 +145,6 @@ export const RelatedPostItem = styled.div`
 `;
 
 
-export const CategoryPostCol = styled.div`
-	margin-bottom: 50px;
-	width: 50%;
-	float: left;
-	padding: 0 15px;
-	@media (max-width: 1024px) {
-		margin-bottom: 40px;
-		padding: 0 10px;
-	}
-	@media (max-width: 767px) {
-		margin-bottom: 30px;
-	}
-	@media (max-width: 575px) {
-		width: 420px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 25px;
-	}
-	@media (max-width: 460px) {
-		width: 100%;
-	}
-`;
-
-
 export const TagPageHeading = styled.div`
   padding-left: 210px;
   font-size: 15px;

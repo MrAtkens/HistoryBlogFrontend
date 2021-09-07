@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
+import { Formik, Form } from 'formik';
 import {observer} from "mobx-react-lite";
 
 import Input from '~/components/input/input';
@@ -27,7 +27,6 @@ const Contact = observer(() => {
       initialValues={{ firstName: '', email: '', message: '' }}
       onSubmit={(values, actions) => {
         systemStore.sendMailFromUser(values.firstName, values.email, values.message).then(status => {
-          console.log(status)
           actions.setSubmitting(false);
           if(status === true) {
             actions.setFieldValue("firstName", "")
@@ -50,8 +49,7 @@ const Contact = observer(() => {
             <ContactWrapper>
               <ContactPageTitle>
                 <h2>Контакты</h2>
-                <p>Телефон: </p>
-                <p>Почта: </p>
+                <p>Почта: geeknhistory@gmail.com</p>
               </ContactPageTitle>
               <ContactFromWrapper>
                 <InputGroup>
@@ -61,10 +59,10 @@ const Contact = observer(() => {
                     value={`${values.firstName}`}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    label="Name"
+                    label="Имя или псевдоним"
                     notification={`${
                       errors.firstName && touched.firstName
-                        ? errors.firstName
+                        ? "Укажите имя"
                         : ''
                     }`}
                   />
@@ -74,9 +72,9 @@ const Contact = observer(() => {
                     value={`${values.email}`}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    label="Email"
+                    label="Почта"
                     notification={`${
-                      errors.email && touched.email ? errors.email : ''
+                      errors.email && touched.email ? "Укажите почту" : ''
                     }`}
                   />
                 </InputGroup>
@@ -86,16 +84,16 @@ const Contact = observer(() => {
                   value={`${values.message}`}
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  label="Message"
+                  label="Сообщение"
                   notification={
-                    errors.message && touched.message ? errors.message : ''
+                    errors.message && touched.message ? "Напишите сообщение" : ''
                   }
                 />
                 <Button
-                  title="Submit"
+                  title="Отправить"
                   type="submit"
-                  isLoading={isSubmitting ? true : false}
-                  loader="Submitting.."
+                  isLoading={isSubmitting}
+                  loader="Отправляется.."
                 />
               </ContactFromWrapper>
             </ContactWrapper>
