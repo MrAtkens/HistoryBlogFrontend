@@ -27,7 +27,6 @@ const Contact = observer(() => {
       initialValues={{ firstName: '', email: '', message: '' }}
       onSubmit={(values, actions) => {
         systemStore.sendMailFromUser(values.firstName, values.email, values.message).then(status => {
-          console.log(status)
           actions.setSubmitting(false);
           if(status === true) {
             actions.setFieldValue("firstName", "")
@@ -50,8 +49,7 @@ const Contact = observer(() => {
             <ContactWrapper>
               <ContactPageTitle>
                 <h2>Контакты</h2>
-                <p>Телефон: </p>
-                <p>Почта: </p>
+                <p>Почта: geeknhistory@gmail.com</p>
               </ContactPageTitle>
               <ContactFromWrapper>
                 <InputGroup>
@@ -64,7 +62,7 @@ const Contact = observer(() => {
                     label="Имя или псевдоним"
                     notification={`${
                       errors.firstName && touched.firstName
-                        ? errors.firstName
+                        ? "Укажите имя"
                         : ''
                     }`}
                   />
@@ -76,7 +74,7 @@ const Contact = observer(() => {
                     onBlur={handleBlur}
                     label="Почта"
                     notification={`${
-                      errors.email && touched.email ? errors.email : ''
+                      errors.email && touched.email ? "Укажите почту" : ''
                     }`}
                   />
                 </InputGroup>
@@ -88,13 +86,13 @@ const Contact = observer(() => {
                   onBlur={handleBlur}
                   label="Сообщение"
                   notification={
-                    errors.message && touched.message ? errors.message : ''
+                    errors.message && touched.message ? "Напишите сообщение" : ''
                   }
                 />
                 <Button
                   title="Отправить"
                   type="submit"
-                  isLoading={isSubmitting ? true : false}
+                  isLoading={isSubmitting}
                   loader="Отправляется.."
                 />
               </ContactFromWrapper>

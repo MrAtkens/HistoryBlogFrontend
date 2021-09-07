@@ -1,6 +1,5 @@
 import React, {Fragment} from 'react';
 import {IoMdArrowRoundBack} from "react-icons/io";
-import Image from "material-ui-image"
 import Link from "next/link";
 
 import {Goback, Icon, NotFoundContent, NotFoundImage, NotFoundWrapper} from '~/containers/not-found';
@@ -37,7 +36,7 @@ const NotFoundPage = () => {
                     </Goback>
                 </NotFoundContent>
                 <NotFoundImage>
-                    <Image src={imageNotFound} alt="Страница 404 не найдено"/>
+                    <img src={imageNotFound} alt="Страница 404 не найдено"/>
                 </NotFoundImage>
             </NotFoundWrapper>
         </Fragment>

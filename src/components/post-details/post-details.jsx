@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Link from "next/link";
-import Image from 'material-ui-image'
 import kebabCase from "kebab-case";
 
 import {
@@ -9,17 +8,20 @@ import {
   PostDate,
   PostPreview,
   PostDescriptionWrapper,
-  PostDescription,
+  PostDescription, PostAuthor,
   PostTags, PostCategory,
 } from './post-details.style';
 import {CategoryItem, Tooltip} from "~/containers/blogs/blogsStyle.style";
+import styled from "styled-components";
+
+
 
 const PostDetails = ({
   title,
   date,
   preview,
   description, category,
-  tags,
+  tags, authorName,
   className,
   ...props
 }) => {
@@ -44,9 +46,10 @@ const PostDetails = ({
         </PostCategory>
         <PostTitle>{title}</PostTitle>
         <PostDate>{date}</PostDate>
+        <PostAuthor>Автор: <span style={{fontWeight: 700}}>{authorName}</span></PostAuthor>
       </>
       <PostPreview className="post_preview">
-        <Image aspectRatio={16/9} src={preview} alt={title} />
+        <img src={preview} alt={title} />
       </PostPreview>
 
       <PostDescriptionWrapper className="post_des_wrapper">

@@ -35,6 +35,10 @@ export const Logo = styled.div`
 	@media (max-width: 575px) {
 		max-width: 90px;
 	}
+	img{
+		width: 250px;
+		height: 39px;
+	}
 `;
 
 export const MenuWrapper = styled.div`

@@ -1,4 +1,7 @@
 import * as React from 'react';
+import Link from "next/link";
+import kebabCase from "kebab-case"
+
 import {
   FeaturedPostWrapper,
   Excerpt,
@@ -8,8 +11,7 @@ import {
   PostMeta,
   PostTags,
 } from './feature-post.style';
-import Link from "next/link";
-import kebabCase from "kebab-case"
+
 
 const FeaturedPost = ({
   title,

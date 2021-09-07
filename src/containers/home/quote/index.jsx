@@ -1,7 +1,6 @@
 import React from 'react';
 import {observer} from "mobx-react-lite";
 import { Carousel } from 'react-responsive-carousel';
-import Image from "material-ui-image";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -11,27 +10,25 @@ import {
   IntroWrapper,
   IntroImage,
   IntroTitle,
-  Desciption,
+  Description,
   IntroInfo,
   Date
 } from './style';
 
-const Quotes = observer(({posts}) => {
-  console.log("Posts JSON")
-  console.log(posts)
+const Quotes = observer(() => {
   return (
-      <Carousel showArrows={true} showStatus={false} emulateTouch={true}>
+      <Carousel showArrows={true} showStatus={false} emulateTouch={true} showThumbs={false}>
         {quoteStore.quotes.map(quote => {
           return (
               <IntroWrapper key={quote.id}>
                 <IntroImage>
-                  <Image src={quote.image.webImagePath} alt={quote.image.alt}/>
+                  <img src={quote.image.webImagePath} alt={quote.image.alt}/>
                 </IntroImage>
                 <IntroInfo>
                   <IntroTitle>
                     {quote.fullName}
                   </IntroTitle>
-                  <Desciption>{quote.description}</Desciption>
+                  <Description>{quote.description}</Description>
                   <Date>{quote.date}</Date>
                 </IntroInfo>
               </IntroWrapper>

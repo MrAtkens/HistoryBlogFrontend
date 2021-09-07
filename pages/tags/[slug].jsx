@@ -6,6 +6,7 @@ import {FeaturedPostCol, FeaturedPostRow, FeaturedPostWrapper, SecTitle} from "~
 import { TagPageHeading, TagName } from '~/containers/templates.style';
 import FeaturedCard from "~/components/featured-card/featured-card"
 import blogs from '~/stores/blogStore'
+import Head from "next/head";
 
 const TagsPage = observer(() => {
 
@@ -17,6 +18,12 @@ const TagsPage = observer(() => {
     const blogsTag = blogs.getBlogsTableByTags
     return (
         <>
+            <Head>
+                <title>{router.query.slug} | Geek'n'History</title>
+                <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, maximum-scale=3, viewport-fit=cover' />
+                <meta name="keywords" content={router.query.slug} />
+                <meta name="description" content={router.query.slug} />
+            </Head>
             <TagPageHeading>
                 <TagName>{router.query.slug}</TagName>
                 {`A collection of ${blogsTag.length} post`}

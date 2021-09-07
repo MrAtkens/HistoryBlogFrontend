@@ -14,6 +14,15 @@ const getBlogsApi = async (currentPage, countPerPage) => {
     })
 }
 
+const getAllBlogsApi = async () => {
+    return await axios.get(`${URLBlog}/api/blog`).then(response => {
+        return response
+    }).catch(error => {
+        return error.response
+    })
+
+}
+
 const getBlogByIdAPI = async (id) => {
     return await axios.get(`${URLBlog}/api/blog/${id}`).then(response => {
         return response
@@ -77,6 +86,7 @@ const getPageCount = async () => {
 
 export const blogsService = {
     getBlogsApi,
+    getAllBlogsApi,
     getBlogByIdAPI,
     getBlogsByTag,
     getBlogsByCategory,

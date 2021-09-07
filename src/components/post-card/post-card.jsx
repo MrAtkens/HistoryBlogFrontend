@@ -1,8 +1,6 @@
 import * as React from 'react';
 import Link from "next/link";
 
-import Image from 'material-ui-image'
-
 import {
     PostCardWrapper,
     PostPreview,
@@ -14,6 +12,14 @@ import {
     PostTags,
 } from './post-card.style';
 import kebabCase from "kebab-case";
+import styled from "styled-components";
+
+const CardImage = styled.img`
+  display: flex;
+  align-items: center;
+  width: 50%
+  height: 20%
+`;
 
 const PostCard = ({
                       image,
@@ -42,9 +48,9 @@ const PostCard = ({
                         pathname: '/blog/[slug]',
                         query: {slug: id},
                     }}>                        {imageType === 'fluid' ? (
-                        <Image aspectRatio={17 / 11} src={image} alt={title}/>
+                        <CardImage src={image} alt={title}/>
                     ) : (
-                        <Image aspectRatio={17 / 11} src={image} alt={title}/>
+                        <CardImage src={image} alt={title}/>
                     )}
                     </Link>
                 </PostPreview>

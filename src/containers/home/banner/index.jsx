@@ -10,7 +10,7 @@ import blogs from '~/stores/blogStore'
 const Banner = observer(() => {
 
   return (
-      <Carousel showArrows={true} showStatus={false} emulateTouch={true}>
+      <Carousel showArrows={true} showStatus={false} emulateTouch={true} showThumbs={false}>
           {blogs.featuredBlogs.map(blog => {
               const title = blog.title;
               // Random Placeholder Color

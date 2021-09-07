@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { IoIosSearch, IoIosClose } from 'react-icons/io';
-import Image from "material-ui-image"
 import Router from 'next/router'
 
 import HeaderWrapper, {
@@ -73,7 +72,7 @@ const Navbar = ({
           <MobileMenu items={MenuItems} logo='/static/image/logo.png'/>
         </DrawerProvider>
         <Logo>
-          <Image width={250} height={30} src='/static/image/logo.png' alt="logo" onClick={redirectToHome} />
+          <img src='/static/image/logo.png' alt="logo" onClick={redirectToHome} />
         </Logo>
         <MenuWrapper>
           <Menu items={MenuItems} />
@@ -83,7 +82,7 @@ const Navbar = ({
           aria-label="search"
           onClick={toggleHandle}
         >
-          <IoIosSearch size="23px" />
+          <IoIosSearch size="24px" />
         </NavSearchButton>
       </NavbarWrapper>
 

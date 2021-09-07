@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react';
 import {observer} from "mobx-react-lite";
 import Link from "next/link";
-import { FaSortAlphaDownAlt, FaSortAlphaUpAlt, FaRegCalendarPlus, FaRegCalendarMinus } from "react-icons/fa";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
+import { FaSortAlphaDownAlt, FaSortAlphaUpAlt, FaRegCalendarPlus, FaRegCalendarMinus, FaEye, FaEyeSlash } from "react-icons/fa";
 
 import { TagPageHeading, BlogPostsWrapper, Button, SortButtons, SortName, PostCategory, CategoryItem, Tooltip } from "./blogsStyle.style";
 import {FeaturedPostCol, FeaturedPostRow} from "~/containers/home/posts/style";
@@ -54,7 +53,7 @@ const Blogs = observer(() => {
                         </Button>
                         <Button>
                             <a onClick={() => blogs.sortBy(SORT_BY_VIEW)} aria-label="Sort by view count">
-                                {blogs.blogsSortByView === true ? (<AiFillEye />) : (<AiFillEyeInvisible/>)}
+                                {blogs.blogsSortByView === true ? (<FaEye />) : (<FaEyeSlash/>)}
                             </a>
                         </Button>
                     </SortButtons>

@@ -3,7 +3,7 @@ import SocialProfile from '~/components/social-profile/social-profile';
 import {
   IntroWrapper,
   IntroTitle,
-  Desciption,
+  Description,
   BgText,
   IntroContentWrapper,
 } from './style';
@@ -14,25 +14,27 @@ import {
 
 const SocialLinks = [
   {
-    icon: <IoLogoInstagram />,
+    icon: <IoLogoInstagram size={50} />,
     url: '#',
-    tooltip: 'Instagram',
+    tooltip: 'Наша группа в Instagram',
   },
   {
-    icon: <IoLogoVk />,
+    icon: <IoLogoVk size={50} />,
     url: '#',
-    tooltip: 'VK',
+    tooltip: 'Наша группа в VK',
+
   },
 ];
 
-const Intro = (props) => {
-
+const Intro = () => {
   return (
     <IntroWrapper>
       <BgText>О НАС</BgText>
       <IntroContentWrapper>
-        <IntroTitle>Мы вещаем о историй</IntroTitle>
-        <Desciption>Every company has a story to tell, so break out your storytelling skills from that random English class you took years ago and put them to work on your “About Us” page. Using descriptive and emotive copy and gorgeous graphics, an “About Us” page with a story works.</Desciption>
+        <IntroTitle>Об историческом блоге Geek’n’History</IntroTitle>
+        <Description>
+          Этот блог - кладовка с самыми разными статьями, порой даже не первой свежести. История всё-таки, не обессудьте. Эксперты ли мы? Отнюдь. Просто кучка студентов-энтузиастов, которые любят историю и хотят поделиться этой любовью с другими. Поэтому не воспринимайте статьи тут написанные как истину в последней инстанции. Это развлекательно-познавательный контент. А мы лишь излагаем мысли, констатируем факты так, как видим их сами.
+        </Description>
         <SocialProfile items={SocialLinks} />
       </IntroContentWrapper>
     </IntroWrapper>

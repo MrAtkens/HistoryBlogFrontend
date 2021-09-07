@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link'
-import Image from 'material-ui-image'
+import styled from "styled-components";
+import kebabCase from "kebab-case"
 
 import {
     FeaturedCardWrapper,
@@ -12,8 +13,13 @@ import {
     ReadMore,
     Excerpt,
 } from './featured-card.style';
-import kebabCase from "kebab-case"
 
+const FeaturedImage = styled.img`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 700px;
+`;
 
 const FeaturedCard = ({
                           image,
@@ -45,7 +51,7 @@ const FeaturedCard = ({
                         pathname: '/blog/[slug]',
                         query: {slug: id},
                     }}>
-                        <Image aspectRatio={4 / 5} src={image.webImagePath} alt={image.alt}/>
+                        <FeaturedImage src={image.webImagePath} alt={image.alt}/>
                     </Link>
                 </PostPreview>
             )}

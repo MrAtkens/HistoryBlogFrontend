@@ -1,12 +1,14 @@
 import React, {useEffect} from 'react';
 import {observer} from "mobx-react-lite";
-import Disqus from "disqus-react"
-import Link from "next/link"
+import {useRouter} from "next/router";
+import kebabCase from "kebab-case";
+import Disqus from "disqus-react";
+import Link from "next/link";
+import Head from "next/head";
 
 import Skeleton from "react-loading-skeleton";
 import {
     FacebookShareButton,
-    TelegramShareButton,
     InstapaperShareButton,
     VKShareButton
 } from 'react-share';
@@ -31,8 +33,6 @@ import {
     BlogPostComment,
 } from '~/containers/templates.style';
 import blogStore from '~/stores/blogStore'
-import {useRouter} from "next/router";
-import kebabCase from "kebab-case";
 
 const BlogPostTemplate = observer(() => {
     // @ts-ignore
@@ -48,6 +48,12 @@ const BlogPostTemplate = observer(() => {
 
     return (
         <>
+            <Head>
+                <title>{blog.title} | Geek'n'History</title>
+                <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, maximum-scale=3, viewport-fit=cover' />
+                <meta name="keywords" content={blog.tags} />
+                <meta name="description" content={blog.mainBlogText} />
+            </Head>
             <BlogPostDetailsWrapper>
                 {blogStore.blogLoading === true ? (
                     <>
@@ -57,6 +63,7 @@ const BlogPostTemplate = observer(() => {
                             date={blog.creationDate}
                             preview={blog.image.webImagePath}
                             description={blog.mainBlogText}
+                            authorName={blog.authorName}
                         />
                         <BlogPostFooter>
                             {blog.tags == null ? null : (
@@ -74,14 +81,14 @@ const BlogPostTemplate = observer(() => {
                             <PostShare>
                                 <span>Поделиться:</span>
                                 <FacebookShareButton url={"/"} quote={blog.title}>
-                                    <IoLogoFacebook/>
+                                    <IoLogoFacebook size={30}/>
                                 </FacebookShareButton>
                                 <VKShareButton url={location.pathname} title={blog.title}
                                                image={blog.image.webImagePath}>
-                                    <IoLogoVk/>
+                                    <IoLogoVk size={30}/>
                                 </VKShareButton>
                                 <InstapaperShareButton url={location.pathname} title={blog.title}>
-                                    <IoLogoInstagram/>
+                                    <IoLogoInstagram size={30}/>
                                 </InstapaperShareButton>
                             </PostShare>
                         </BlogPostFooter>

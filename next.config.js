@@ -1,12 +1,13 @@
 const withPlugins = require('next-compose-plugins');
-//const withImages = require('next-images');
 const withPWA = require('next-pwa')
 
 const nextSettings = withPWA({
+    // trailingSlash: true,
     //Здесь надо вписывать данные
     env: {
         //Google Analytics Tag
         gtag: 'G-4370VENQX5',
+        SITE_URL: 'https://geeknhistory.kz'
     },
     //Здесь надо вписывать данные
     pwa: {
@@ -16,8 +17,5 @@ const nextSettings = withPWA({
         skipWaiting: true,
     },
 });
-
-
-//module.exports = withPlugins([withImages, nextSettings]);
 
 module.exports = withPlugins([nextSettings]);

@@ -68,8 +68,22 @@ export const PostDate = styled.span`
   }
 `;
 
+export const PostAuthor = styled.span`
+  display: block;
+  margin-top: 10px;
+  font-size: ${themeGet('fontSizes.3', '12')}px;
+  color: ${themeGet('textColor', '#292929')};
+  font-weight: 600;
+  @media (max-width: 990px) {
+    font-size: 10px;
+  }
+  @media (max-width: 575px) {
+    font-size: 8px;
+  }
+`;
+
 export const PostPreview = styled.div`
-  margin-top: 45px;
+  margin-top: 20px;
   position: relative;
   @media (max-width: 1200px) {
     margin-top: 40px;
@@ -79,6 +93,7 @@ export const PostPreview = styled.div`
   }
 
   img {
+    width: 100%;
     border-radius: 3px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
